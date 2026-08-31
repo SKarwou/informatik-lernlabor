@@ -1,38 +1,5 @@
-# Informatik-Lernlabor Klasse 11
+# Informatik-Lernlabor Klasse 11/12
 
-Eine interaktive Lernanwendung zu Sortieralgorithmen für den Informatikunterricht am KCG.
+Vollständiges Lernlabor für das Informatik-Wahlfach in der Oberstufe mit 12 Kapiteln, interaktiven Übungen, Heftaufgaben sowie Scratch- und BlueJ-Projekten.
 
-## Enthaltene Funktionen
-
-- Bubblesort, Selectionsort und Insertionsort
-- automatische Wiedergabe und Einzelschritte
-- animierte Zahlenbalken
-- Zähler für Vergleiche und Vertauschungen
-- Erklärungen und Pseudocode
-- Lerncheck mit direkter Rückmeldung
-- responsive Darstellung für Computer, Tablet und Smartphone
-
-## Webseite veröffentlichen
-
-Die fertig gebaute Webseite liegt im Ordner `docs`. In GitHub unter **Settings → Pages** bei **Source** den Eintrag **Deploy from a branch** auswählen. Anschließend den Branch **main** und den Ordner **/docs** auswählen und speichern.
-
-Nach wenigen Minuten ist die Seite normalerweise unter folgender Adresse erreichbar:
-
-`https://skarwou.github.io/informatik-lernlabor/`
-
-## Lokal bearbeiten
-
-Voraussetzung ist eine aktuelle Node.js-Version.
-
-```bash
-npm install
-npm run dev
-```
-
-Nach Änderungen wird die fertige GitHub-Pages-Version mit folgendem Befehl neu erzeugt:
-
-```bash
-npm run build
-```
-
-Der Quellcode befindet sich im Ordner `src`.
+Die GitHub-Pages-Fassung wird mit `npm run build` in den Ordner `docs` gebaut.
