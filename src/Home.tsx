@@ -14,8 +14,8 @@ export default function Home() {
 
       <header className="hero shell">
         <div className="eyebrow">BILDUNGSPLAN BADEN-WÜRTTEMBERG · KLASSEN 11/12</div>
-        <h1>Der ganze Stoff.<br /><em>Ein Lernlabor.</em></h1>
-        <p className="heroCopy">Zwei Schuljahre Informatik in einem Lernpfad – mit ausführlichen Erklärungen, Schaubildern, Rechen- und Heftaufgaben, Scratch, BlueJ und direktem Feedback.</p>
+        <h1>Wahlfach Informatik.<br /><em>Ein Lernlabor.</em></h1>
+        <p className="heroCopy">Informatik in einem Lernpfad – mit ausführlichen Erklärungen, Schaubildern, Rechen- und Heftaufgaben, Scratch, BlueJ und direktem Feedback.</p>
         <div className="heroActions">
           <a className="primaryButton" href="#themen">Themen entdecken <span>↓</span></a>
           <Link className="textButton" href="/bildungsplan">Zweijahresplan öffnen →</Link>
@@ -29,7 +29,7 @@ export default function Home() {
 
       <section className="gatewaySection shell" aria-label="Kursplanung und Projekte">
         <Link href="/bildungsplan" className="gatewayCard curriculumGateway">
-          <div><span className="eyebrow">VOLLSTÄNDIGKEIT GEPRÜFT</span><h2>Bildungsplan-Check & Zweijahresplan</h2><p>Alle 63 Teilkompetenzen mit Lernort, Übungsform und einer realistischen Verteilung auf 72 Doppelstunden.</p></div><span className="gatewayArrow">↗</span>
+          <div><span className="eyebrow">VOLLSTÄNDIGKEIT GEPRÜFT</span><h2>Bildungsplan-Check & Zweijahresplan</h2><p>Alle 63 Teilkompetenzen mit Lernort und Übungsform.</p></div><span className="gatewayArrow">↗</span>
         </Link>
         <Link href="/projekte" className="gatewayCard projectGateway">
           <div><span className="eyebrow">SCRATCH + BLUEJ</span><h2>Zwei vollständige Projektphasen</h2><p>Der sichere Schul-Messenger und eine objektorientierte Medienverwaltung – mit Meilensteinen und Bewertung.</p></div><span className="gatewayArrow">↗</span>
