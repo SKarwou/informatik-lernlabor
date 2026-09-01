@@ -15,7 +15,7 @@ export default function Home() {
       <header className="hero shell">
         <div className="eyebrow">BILDUNGSPLAN BADEN-WÜRTTEMBERG · KLASSEN 11/12</div>
         <h1>Wahlfach Informatik.<br /><em>Ein Lernlabor.</em></h1>
-        <p className="heroCopy">Informatik inn einem Lernpfad – mit ausführlichen Erklärungen, Schaubildern, Rechen- und Heftaufgaben, Scratch, BlueJ und direktem Feedback.</p>
+        <p className="heroCopy">Informatik in einem Lernpfad – mit ausführlichen Erklärungen, Schaubildern, Rechen- und Heftaufgaben, Scratch, BlueJ und direktem Feedback.</p>
         <div className="heroActions">
           <a className="primaryButton" href="#themen">Themen entdecken <span>↓</span></a>
           <Link className="textButton" href="/bildungsplan">Zweijahresplan öffnen →</Link>
