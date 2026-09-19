@@ -10,7 +10,7 @@ function toStaticHref(href: string) {
 
   const [path, anchor] = href.split("#", 2);
   const page = path === "/" ? "home" : path.replace(/^\//, "");
-  const query = page === "home" ? "" : `?page=${encodeURIComponent(page)}`;
+  const query = page === "home" ? "./" : `?page=${encodeURIComponent(page)}`;
 
   return `${query}${anchor ? `#${anchor}` : ""}` || "./";
 }

@@ -1,20 +1,21 @@
 "use client";
+import Link from "next/link";
+import { Solution } from "./ProtectedContent";
 
 import { useMemo, useState } from "react";
 
-const initial = [6, 3, 8, 4, 2];
+export type BubbleConfig = { initial: number[]; title: string; intro: string; principleTitle: string; principle: string; pseudocode: string; workshop: { title:string; goal:string; blocks:string[]; extension:string } };
 
 type SortState = { values: number[]; left: number; right: number; pass: number; swaps: number; comparisons: number; done: boolean; message: string };
 
-const startState = (): SortState => ({ values: initial, left: 0, right: 1, pass: 1, swaps: 0, comparisons: 0, done: false, message: "Vergleiche die ersten beiden Nachbarn." });
-
-export default function BubbleSortLab() {
+export default function BubbleSortLab({ config }: { config: BubbleConfig }) {
+  const startState = (): SortState => ({ values: [...config.initial], left: 0, right: 1, pass: 1, swaps: 0, comparisons: 0, done: false, message: "Vergleiche die ersten beiden Nachbarn." });
   const [state, setState] = useState<SortState>(startState);
   const [answer, setAnswer] = useState<"swap" | "keep" | null>(null);
   const [feedback, setFeedback] = useState("");
 
   const needsSwap = state.values[state.left] > state.values[state.right];
-  const progress = useMemo(() => Math.min(100, Math.round(((state.comparisons) / 10) * 100)), [state.comparisons]);
+  const progress = useMemo(() => Math.min(100, Math.round(state.comparisons / (config.initial.length * (config.initial.length-1) / 2) * 100)), [state.comparisons, config.initial.length]);
 
   function decide(choice: "swap" | "keep") {
     if (state.done) return;
@@ -46,11 +47,11 @@ export default function BubbleSortLab() {
 
   return (
     <section className="sortLab">
-      <div className="labHeading"><div><div className="eyebrow">INTERAKTIVE VERSTÄNDNISAUFGABE</div><h2>Führe Bubblesort selbst aus</h2></div><button className="resetButton" onClick={reset}>↻ Neu starten</button></div>
-      <p>Entscheide bei jedem Nachbarpaar: Müssen die Zahlen getauscht werden oder bleiben sie stehen?</p>
+      <div className="labHeading"><div><div className="eyebrow">INTERAKTIVE VERSTÄNDNISAUFGABE</div><h2>{config.title}</h2></div><button className="resetButton" onClick={reset}>↻ Neu starten</button></div>
+      <p>{config.intro}</p>
 
       <div className="labBoard">
-        <div className="labTopline"><span>Durchlauf {Math.min(state.pass, 4)} von 4</span><span>{state.comparisons} Vergleiche · {state.swaps} Vertauschungen</span></div>
+        <div className="labTopline"><span>Durchlauf {Math.min(state.pass, config.initial.length-1)} von {config.initial.length-1}</span><span>{state.comparisons} Vergleiche · {state.swaps} Vertauschungen</span></div>
         <div className="numberRow" aria-label={`Zahlenfolge: ${state.values.join(", ")}`}>
           {state.values.map((value, index) => {
             const comparing = !state.done && (index === state.left || index === state.right);
@@ -70,21 +71,22 @@ export default function BubbleSortLab() {
         {feedback && <div className={`feedback ${feedback.startsWith("Richtig") ? "correct" : "retry"}`} aria-live="polite">{feedback}</div>}
       </div>
 
+      <Solution scope="sortieren" id="transfer" title="Vollständiger Kontrollweg des Sortierlabors" />
+
       <div className="principleGrid">
-        <article><div className="eyebrow">DAS PRINZIP</div><h3>Große Werte steigen auf</h3><p>Wie Luftblasen im Wasser wandert in jedem Durchlauf die größte noch unsortierte Zahl nach rechts.</p></article>
-        <article className="codeCard"><div><span>Pseudocode</span><span>algorithmus.txt</span></div><pre>{`wiederhole n − 1 Durchläufe:\n  vergleiche zwei Nachbarn\n  falls links > rechts:\n    vertausche beide Werte`}</pre></article>
+        <article><div className="eyebrow">DAS PRINZIP</div><h3>{config.principleTitle}</h3><p>{config.principle}</p></article>
+        <article className="codeCard"><div><span>Pseudocode</span><span>algorithmus.txt</span></div><pre>{config.pseudocode}</pre></article>
       </div>
 
       <article className="scratchWorkshop sortScratch">
-        <div className="scratchTop"><div className="scratchLogo">SCRATCH</div><div><div className="eyebrow">PROGRAMMIERWERKSTATT</div><h2>Bubblesort in Scratch</h2></div><a href="https://scratch.mit.edu/projects/editor/" target="_blank" rel="noreferrer">Scratch öffnen ↗</a></div>
-        <p>Übertrage das beobachtete Verfahren in ein eigenes Scratch-Programm. Nutze eine Liste namens <strong>Zahlen</strong> und zwei Schleifen.</p>
+        <div className="scratchTop"><div className="scratchLogo">SCRATCH</div><div><div className="eyebrow">PROGRAMMIERWERKSTATT</div><h2>{config.workshop.title}</h2></div><a href="https://scratch.mit.edu/projects/editor/" target="_blank" rel="noreferrer">Scratch öffnen ↗</a></div>
+        <p>{config.workshop.goal}</p>
+        <p><Link className="textButton" href="/werkzeuge#scratch">Neu in Scratch? Hier beginnt die Einführung →</Link></p>
         <div className="scratchBlocks">
-          <div className="scratchBlock block0"><span>1</span>lösche alles aus [Zahlen] und füge fünf Zufallszahlen hinzu</div>
-          <div className="scratchBlock block1"><span>2</span>wiederhole (Länge von Zahlen − 1) mal</div>
-          <div className="scratchBlock block2"><span>3</span>setze [i] auf 1 und vergleiche Element i mit Element i+1</div>
-          <div className="scratchBlock block3"><span>4</span>falls links &gt; rechts: speichere, ersetze und vertausche beide Werte</div>
+          {config.workshop.blocks.map((block,i)=><div className={`scratchBlock block${i%4}`} key={i}><span>{i+1}</span>{block}</div>)}
         </div>
-        <div className="scratchChallenge"><strong>⭐ Erweiterung</strong><p>Zähle Vergleiche und Vertauschungen. Lasse die Figur nach jedem vollständigen Durchlauf sagen, welches Element jetzt sicher sortiert ist.</p></div>
+        <div className="scratchChallenge"><strong>⭐ Erweiterung</strong><p>{config.workshop.extension}</p></div>
+        <Solution scope="sortieren" id="workshop" title="Musterweg für Scratch" />
       </article>
     </section>
   );

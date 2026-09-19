@@ -9,7 +9,7 @@ export default function Home() {
           <span className="brandMark">&lt;/&gt;</span>
           <span>Informatik-Lernlabor</span>
         </Link>
-        <div className="navLinks"><Link href="/bildungsplan">Zweijahresplan</Link><Link href="/projekte">Projektphasen</Link></div>
+        <div className="navLinks"><Link href="/werkzeuge">Erste Schritte</Link><Link href="/projekte">Projektphasen</Link><Link href="/bildungsplan">🔒 Lehrkraft</Link></div>
       </nav>
 
       <header className="hero shell">
@@ -18,10 +18,10 @@ export default function Home() {
         <p className="heroCopy">Informatik in einem Lernpfad – mit ausführlichen Erklärungen, Schaubildern, Rechen- und Heftaufgaben, Scratch, BlueJ und direktem Feedback.</p>
         <div className="heroActions">
           <a className="primaryButton" href="#themen">Themen entdecken <span>↓</span></a>
-          <Link className="textButton" href="/bildungsplan">Zweijahresplan öffnen →</Link>
+          <Link className="textButton" href="/module/zahlensysteme">Ohne Vorwissen starten →</Link>
         </div>
         <div className="stats" aria-label="Umfang des Lernlabors">
-          <div><strong>63</strong><span>Kompetenzen</span></div>
+          <div><strong>2</strong><span>Schuljahre</span></div>
           <div><strong>12</strong><span>Lernmodule</span></div>
           <div><strong>72</strong><span>Doppelstunden</span></div>
         </div>
@@ -29,12 +29,14 @@ export default function Home() {
 
       <section className="gatewaySection shell" aria-label="Kursplanung und Projekte">
         <Link href="/bildungsplan" className="gatewayCard curriculumGateway">
-          <div><span className="eyebrow">VOLLSTÄNDIGKEIT GEPRÜFT</span><h2>Bildungsplan-Check & Zweijahresplan</h2><p>Alle 63 Teilkompetenzen mit Lernort und Übungsform.</p></div><span className="gatewayArrow">↗</span>
+          <div><span className="eyebrow">🔒 FÜR DIE LEHRKRAFT</span><h2>Bildungsplan & Zweijahresplan</h2><p>Unterrichtsplanung und Zuordnung der Kompetenzen · mit Passwort.</p></div><span className="gatewayArrow">↗</span>
         </Link>
         <Link href="/projekte" className="gatewayCard projectGateway">
-          <div><span className="eyebrow">SCRATCH + BLUEJ</span><h2>Zwei vollständige Projektphasen</h2><p>Der sichere Schul-Messenger und eine objektorientierte Medienverwaltung – mit Meilensteinen und Bewertung.</p></div><span className="gatewayArrow">↗</span>
+          <div><span className="eyebrow">🔒 JE EIN EIGENER PROJEKTCODE</span><h2>Zwei getrennte Projektphasen</h2><p>Die Aufgabenbeschreibungen öffnen sich erst, wenn deine Lehrkraft das jeweilige Projekt freigibt.</p></div><span className="gatewayArrow">↗</span>
         </Link>
       </section>
+
+      <section className="newLearning shell"><div><span className="eyebrow">NEU · DATEN & CODIERUNG VON ANFANG AN</span><h2>Erst verstehen. Dann selbst lösen.</h2><p>Vier neu aufgebaute Kapitel führen dich von Bits und Bytes bis zu deiner ersten SQL-Abfrage. Mit vorgemachten Beispielen, kleinen Einstiegsaufgaben, zwei Hinweisen pro Aufgabe und Musterlösungen mit zusätzlichem Lösungscode.</p></div><div><Link className="primaryButton" href="/module/zahlensysteme">Mit Daten & Codierung starten →</Link><Link className="textButton" href="/werkzeuge">BlueJ, JavaScript und Scratch kennenlernen →</Link></div></section>
 
       <section className="pathSection" id="themen">
         <div className="shell">
@@ -56,7 +58,7 @@ export default function Home() {
                 <div className="topicGrid">
                   {areaTopics.map((topic) => (
                     <Link className="topicCard" href={`/module/${topic.slug}`} key={topic.slug}>
-                      <div className="cardTop"><span>{topic.number}</span><b>KOMPLETT</b></div>
+                      <div className="cardTop"><span>{topic.number}</span><b>🔒 MIT CODE</b></div>
                       <h4>{topic.title}</h4>
                       <p>{topic.short}</p>
                       <div className="cardFooter"><span>{topic.skills.length} Lernziele · mit Heftteil</span><span className="arrow">↗</span></div>
