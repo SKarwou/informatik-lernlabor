@@ -9,7 +9,7 @@ export default function Home() {
           <span className="brandMark">&lt;/&gt;</span>
           <span>Informatik-Lernlabor</span>
         </Link>
-        <div className="navLinks"><Link href="/werkzeuge">Erste Schritte</Link><Link href="/projekte">Projektphasen</Link><Link href="/bildungsplan">🔒 Lehrkraft</Link></div>
+        <div className="navLinks"><Link href="/werkzeuge">Erste Schritte</Link><Link href="/projekte">Projektphasen</Link><Link href="/bildungsplan"> Lehrkraft</Link></div>
       </nav>
 
       <header className="hero shell">
@@ -29,10 +29,10 @@ export default function Home() {
 
       <section className="gatewaySection shell" aria-label="Kursplanung und Projekte">
         <Link href="/bildungsplan" className="gatewayCard curriculumGateway">
-          <div><span className="eyebrow">🔒 FÜR DIE LEHRKRAFT</span><h2>Bildungsplan & Zweijahresplan</h2><p>Unterrichtsplanung und Zuordnung der Kompetenzen · mit Passwort.</p></div><span className="gatewayArrow">↗</span>
+          <div><span className="eyebrow"> FÜR DIE LEHRKRAFT</span><h2>Bildungsplan & Zweijahresplan</h2><p>Unterrichtsplanung und Zuordnung der Kompetenzen · mit Passwort.</p></div><span className="gatewayArrow">↗</span>
         </Link>
         <Link href="/projekte" className="gatewayCard projectGateway">
-          <div><span className="eyebrow">🔒 JE EIN EIGENER PROJEKTCODE</span><h2>Zwei getrennte Projektphasen</h2><p>Die Aufgabenbeschreibungen öffnen sich erst, wenn deine Lehrkraft das jeweilige Projekt freigibt.</p></div><span className="gatewayArrow">↗</span>
+          <div><span className="eyebrow"> JE EIN EIGENER PROJEKTCODE</span><h2>Zwei getrennte Projektphasen</h2><p>Die Aufgabenbeschreibungen öffnen sich erst, wenn deine Lehrkraft das jeweilige Projekt freigibt.</p></div><span className="gatewayArrow">↗</span>
         </Link>
       </section>
 
@@ -58,7 +58,7 @@ export default function Home() {
                 <div className="topicGrid">
                   {areaTopics.map((topic) => (
                     <Link className="topicCard" href={`/module/${topic.slug}`} key={topic.slug}>
-                      <div className="cardTop"><span>{topic.number}</span><b>🔒 MIT CODE</b></div>
+                      <div className="cardTop"><span>{topic.number}</span><b> MIT CODE</b></div>
                       <h4>{topic.title}</h4>
                       <p>{topic.short}</p>
                       <div className="cardFooter"><span>{topic.skills.length} Lernziele · mit Heftteil</span><span className="arrow">↗</span></div>
