@@ -1,0 +1,102 @@
+.vlab-bitplace {
+  margin-block: 30px;
+  padding: clamp(18px, 3vw, 30px);
+  border: 1px solid var(--line, #d8d8d0);
+  border-radius: 12px;
+  background: var(--white, #fffefa);
+  color: var(--ink, #12221d);
+  min-width: 0;
+  max-width: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.vlab-bitplace .vlab-kicker { margin: 0 0 10px; font-size: 11px; font-weight: 800; letter-spacing: .1em; color: #4b674e; }
+.vlab-bitplace .vlab-title { margin: 0 0 18px; font: 700 clamp(23px, 3vw, 29px)/1.2 Arial, sans-serif; letter-spacing: -.025em; }
+.vlab-bitplace .vlab-description, .vlab-bitplace .vlab-explanation { margin: 14px 0 20px; font: 16px/1.7 Arial, sans-serif; color: #344a3e; }
+.vlab-bitplace .vlab-fieldset { border: 0; padding: 0; margin: 24px 0; min-width: 0; }
+.vlab-bitplace .vlab-label { display: block; padding: 0; margin-bottom: 8px; font-size: 14px; line-height: 1.45; font-weight: 700; }
+.vlab-bitplace .vlab-controls { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.vlab-bitplace .vlab-controls .vlab-label { margin: 0 5px 0 0; }
+.vlab-bitplace .vlab-button { min-height: 44px; padding: 10px 14px; border: 1px solid #7c9181; border-radius: 7px; background: #fffefa; color: #183e32; font: 700 14px/1.35 Arial, sans-serif; cursor: pointer; }
+.vlab-bitplace .vlab-button:hover:not(:disabled) { background: #eaf2e2; border-color: #183e32; }
+.vlab-bitplace .vlab-button[aria-pressed="true"] { background: var(--mint, #c9f27f); color: #12221d; border-color: #315741; box-shadow: inset 0 0 0 1px #315741; }
+.vlab-bitplace .vlab-button-primary { background: var(--green, #183e32); color: #fffefa; }
+.vlab-bitplace .vlab-button-primary:hover:not(:disabled) { background: #285842; color: #fffefa; }
+.vlab-bitplace .vlab-button:disabled, .vlab-bitplace .vlab-select:disabled { opacity: .55; cursor: not-allowed; }
+.vlab-bitplace .vlab-button:focus-visible, .vlab-bitplace .bitlab-lamp:focus-visible, .vlab-bitplace .bitlab-bit:focus-visible,
+.vlab-bitplace .vlab-select:focus-visible, .vlab-bitplace .vlab-number-input:focus-visible,
+.vlab-bitplace .vlab-scroll:focus-visible, .vlab-bitplace .vlab-summary:focus-visible { outline: 3px solid #306ec5; outline-offset: 3px; }
+.vlab-bitplace .vlab-playback { margin-block: 22px; }
+.vlab-bitplace .vlab-speed { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; flex-wrap: wrap; }
+.vlab-bitplace .vlab-select { min-height: 44px; max-width: 100%; padding: 9px; border: 1px solid #7c9181; border-radius: 6px; font: 14px Arial, sans-serif; color: #183e32; background: #fffefa; }
+.vlab-bitplace .vlab-note, .vlab-bitplace .vlab-mobile-note { font: 13px/1.6 Arial, sans-serif; color: #52675a; margin: 12px 0; }
+.vlab-bitplace .vlab-mobile-note { display: none; }
+.bitlab-lamp-row { display: flex; flex-wrap: wrap; justify-content: center; gap: clamp(10px, 2vw, 20px); padding: 14px 0 22px; }
+.vlab-bitplace .bitlab-lamp { display: flex; flex: 0 1 112px; flex-direction: column; align-items: center; gap: 12px; padding: 14px; min-width: 90px; border: 2px solid #d3dbd3; border-radius: 10px; background: #f0f2eb; color: #344a3e; cursor: pointer; }
+.vlab-bitplace .bitlab-lamp-on { border-color: #4f7739; background: #edf6df; }
+.bitlab-lamp-label { font-size: 12px; font-weight: 700; }
+.bitlab-light { display: grid; place-items: center; width: 56px; height: 56px; border-radius: 50%; border: 2px solid #718477; background: #dce2d8; color: #344a3e; font: 700 26px/1 ui-monospace, monospace; }
+.bitlab-lamp-on .bitlab-light { background: #c9f27f; border-color: #33572f; box-shadow: 0 0 0 6px #dfedc9; color: #183e32; }
+.bitlab-lamp-state { font-size: 13px; letter-spacing: .09em; }
+.vlab-bitplace .vlab-result { padding: 20px; background: #edf4e5; border-left: 4px solid #527640; border-radius: 6px; overflow-wrap: anywhere; }
+.vlab-bitplace .vlab-result-line { margin: 0; font: 20px/1.55 Arial, sans-serif; color: #183e32; }
+.vlab-bitplace .vlab-result-detail { margin: 10px 0 0; font: 15px/1.65 Arial, sans-serif; color: #2e4938; }
+.vlab-bitplace .vlab-binary { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .06em; }
+.vlab-bitplace .vlab-equals { padding-inline: 5px; }
+.vlab-bitplace .vlab-question { margin: 22px 0 0; padding-top: 18px; border-top: 1px solid #d0d9c9; font: 15px/1.7 Arial, sans-serif; color: #344a3e; }
+.vlab-bitplace .vlab-scroll { max-width: 100%; overflow-x: auto; margin-block: 22px; border-radius: 7px; }
+.bitlab-place-row { display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 7px; min-width: 424px; padding: 6px 4px; }
+.bitlab-place { display: grid; justify-items: center; gap: 10px; padding-block: 10px; border-top: 3px solid #cfd8ca; }
+.bitlab-place-on { border-color: #3e6637; }
+.bitlab-weight { font: 700 15px/1.4 ui-monospace, monospace; color: #3c5944; }
+.vlab-bitplace .bitlab-bit { min-width: 44px; width: 100%; max-width: 62px; min-height: 52px; background: #f0f2eb; border: 1px solid #9cac9b; border-radius: 6px; color: #3e5344; font: 700 25px/1 ui-monospace, monospace; cursor: pointer; }
+.vlab-bitplace .bitlab-bit[aria-pressed="true"] { background: var(--green, #183e32); border-color: #183e32; color: var(--mint, #c9f27f); }
+.vlab-bitplace .bitlab-bit:hover { box-shadow: 0 0 0 2px #749661; }
+.bitlab-contribution { font: 13px/1.4 ui-monospace, monospace; color: #47613e; }
+.vlab-bitplace .vlab-details { margin-block: 18px; border: 1px solid #cad5c4; padding: 14px 16px; background: #f6f7ed; border-radius: 7px; }
+.vlab-bitplace .vlab-summary { font: 700 14px/1.6 Arial, sans-serif; cursor: pointer; }
+.vlab-bitplace .vlab-formula { font: 15px/1.9 ui-monospace, monospace; overflow-wrap: anywhere; margin: 14px 0 0; }
+.vlab-bitplace .vlab-input-row { display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-end; margin-top: 24px; }
+.vlab-bitplace .vlab-number-label { display: flex; flex-direction: column; gap: 8px; font-size: 14px; font-weight: 700; max-width: 100%; }
+.vlab-bitplace .vlab-number-input { width: 150px; max-width: 100%; min-height: 46px; padding: 10px 12px; border: 1px solid #7c9181; border-radius: 7px; background: white; color: #183e32; font: 20px ui-monospace, monospace; }
+.vlab-bitplace .vlab-number-input[aria-invalid="true"] { border: 2px solid #a34632; }
+.vlab-bitplace .vlab-error { padding: 14px 16px; background: #fff0e7; color: #83331f; border-left: 4px solid #a34632; font: 15px/1.6 Arial, sans-serif; }
+.vlab-bitplace .vlab-step-label { font: 700 12px/1.5 Arial, sans-serif; letter-spacing: .035em; margin: 0 0 12px; color: #4d6846; }
+.bitlab-conversion-table { width: 100%; min-width: 450px; border-collapse: collapse; text-align: left; font: 14px/1.45 Arial, sans-serif; }
+.bitlab-caption { text-align: left; padding: 14px 12px; color: #344a3e; font-weight: 700; background: #f2f4eb; }
+.bitlab-table-head { background: #e4eddc; color: #234631; }
+.bitlab-table-cell { padding: 12px 10px; border-bottom: 1px solid #d5dfcd; }
+.bitlab-current-row { background: #e5f1d3; outline: 2px solid #739157; outline-offset: -2px; }
+.bitlab-table-bit { font: 700 19px ui-monospace, monospace; }
+.vlab-bitplace .vlab-check { padding: 16px; border: 1px solid #b9ccad; border-radius: 7px; color: #2e4938; background: #f0f6e7; font: 15px/1.7 Arial, sans-serif; }
+.vlab-bitplace .vlab-print-note { display: none; }
+
+@media (max-width: 560px) {
+  .vlab-bitplace { padding: 18px 14px; }
+  .vlab-bitplace .vlab-mobile-note { display: block; }
+  .vlab-bitplace .vlab-controls { gap: 7px; }
+  .vlab-bitplace .vlab-result { padding: 16px; }
+  .vlab-bitplace .vlab-result-line { font-size: 18px; }
+  .vlab-bitplace .bitlab-lamp { flex-basis: 92px; min-width: 82px; padding: 12px 8px; }
+  .bitlab-light { width: 48px; height: 48px; }
+  .vlab-bitplace .vlab-input-row { align-items: flex-start; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vlab-bitplace, .vlab-bitplace .vlab-button, .vlab-bitplace .bitlab-lamp,
+  .vlab-bitplace .bitlab-light, .vlab-bitplace .bitlab-bit { animation: none !important; transition: none !important; scroll-behavior: auto; }
+}
+
+@media print {
+  .vlab-bitplace { background: white; border: 1px solid #8d998d; border-radius: 0; padding: 14px; box-shadow: none; break-inside: auto; }
+  .vlab-bitplace .vlab-screen-controls, .vlab-bitplace .vlab-playback, .vlab-bitplace .vlab-mobile-note { display: none !important; }
+  .vlab-bitplace .vlab-scroll { overflow: visible; }
+  .bitlab-place-row, .bitlab-conversion-table { min-width: 0; width: 100%; }
+  .vlab-bitplace .bitlab-bit { min-width: 0; }
+  .vlab-bitplace .vlab-result, .bitlab-lamp-row, .bitlab-place-row { break-inside: avoid; }
+  .vlab-bitplace .vlab-title, .bitlab-table-head { break-after: avoid; }
+  .bitlab-table-head { display: table-header-group; }
+  .vlab-bitplace .bitlab-lamp, .vlab-bitplace .bitlab-light,
+  .vlab-bitplace .bitlab-bit, .vlab-bitplace .vlab-result, .bitlab-current-row { color: black !important; box-shadow: none; }
+  .vlab-bitplace .bitlab-bit[aria-pressed="true"] { background: #e1e7db !important; color: black !important; border: 2px solid black; }
+  .vlab-bitplace .vlab-print-note { display: block; font: 11px/1.5 Arial, sans-serif; color: #39483d; margin-top: 16px; }
+}

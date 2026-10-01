@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useId, useRef, useState, type FormEvent, type ReactNode } from "react";
 import type { SolutionPayload } from "../learningTypes";
+import { isTeacherPreview, readTeacherPreview } from "../teacherPreview";
 
 type Payload = SolutionPayload & { html?: string };
 type Access = { payloads: Record<string, Payload>; unlock: (scope: string, password: string) => Promise<void>; lock: (scope: string) => void };
@@ -9,6 +10,15 @@ const bytes = (base64: string) => Uint8Array.from(atob(base64), (char) => char.c
 export function ProtectedProvider({ children }: { children: ReactNode }) {
   const [payloads, setPayloads] = useState<Record<string, Payload>>({});
   const generations = useRef<Record<string, number>>({});
+  const [previewError, setPreviewError] = useState("");
+  useEffect(() => {
+    if (!isTeacherPreview) return;
+    const controller = new AbortController();
+    readTeacherPreview<Record<string, Payload>>("protected", "all", controller.signal)
+      .then(result => { if (!controller.signal.aborted) setPayloads(result); })
+      .catch(cause => { if (!controller.signal.aborted) setPreviewError(cause instanceof Error ? cause.message : "Vorschau konnte nicht geladen werden."); });
+    return () => controller.abort();
+  }, []);
   async function unlock(scope: string, password: string) {
     const generation = generations.current[scope] || 0;
     if (!window.crypto?.subtle) throw new Error("Bitte öffne die Website über ihre https-Adresse in einem aktuellen Browser.");
@@ -34,10 +44,11 @@ export function ProtectedProvider({ children }: { children: ReactNode }) {
     if (generation === (generations.current[scope] || 0)) setPayloads((current) => ({ ...current, [scope]: payload }));
   }
   function lock(scope: string) {
+    if (isTeacherPreview) return;
     generations.current[scope] = (generations.current[scope] || 0) + 1;
     setPayloads((current) => { const next = { ...current }; delete next[scope]; return next; });
   }
-  return <AccessContext.Provider value={{ payloads, unlock, lock }}>{children}</AccessContext.Provider>;
+  return <AccessContext.Provider value={{ payloads, unlock, lock }}>{isTeacherPreview && <aside className="teacherPreviewBanner" role="status"><strong>Lokale Lehrkraftvorschau · ohne Codes</strong><span>{previewError || "Kapitel, Projekte und Lösungen sind nur auf diesem Rechner geöffnet. Die GitHub-Version bleibt geschützt."}</span></aside>}{children}</AccessContext.Provider>;
 }
 
 export function useProtected(scope: string) {
@@ -60,6 +71,7 @@ export function UnlockForm({ scope, teacher = false }: { scope: string; teacher?
     catch (cause) { setError(cause instanceof Error ? cause.message : "Das Öffnen hat nicht geklappt."); }
     finally { setBusy(false); }
   }
+  if (isTeacherPreview) return <p role="status">Die Musterlösungen werden für die lokale Vorschau geöffnet …</p>;
   return <form className="unlockForm" onSubmit={submit}>
     <label htmlFor={id}>{teacher ? "Lehrkraft-Passwort" : "Lösungscode für dieses Kapitel"}</label>
     <div className="unlockRow"><input id={id} type="password" autoComplete="off" autoCapitalize="none" spellCheck={false} value={password} onChange={(event) => setPassword(event.target.value)} required disabled={busy} aria-describedby={error ? `${id}-error` : undefined} /><button className="primaryButton" disabled={busy || !password.trim()} type="submit">{busy ? "Wird geöffnet …" : "Freischalten"}</button></div>
@@ -69,6 +81,7 @@ export function UnlockForm({ scope, teacher = false }: { scope: string; teacher?
 
 export function ChapterAccess({ scope }: { scope: string }) {
   const { payload, lock } = useProtected(scope);
+  if (isTeacherPreview) return <aside className="chapterAccess isUnlocked" id={scope.startsWith("projekt-") ? "loesungscode-" + scope : "loesungscode"}><p>{payload ? "Vorschau: Alle Musterlösungen sind ohne Code aufklappbar." : "Musterlösungen werden für die Vorschau geladen …"} Im veröffentlichten Unterrichtsmodus gelten weiterhin die bisherigen Codes.</p></aside>;
   return <aside className={`chapterAccess ${payload ? "isUnlocked" : ""}`} id={scope.startsWith("projekt-") ? "loesungscode-" + scope : "loesungscode"}>
     <div><span className="eyebrow">{payload ? "FREIGESCHALTET" : "MIT LÖSUNGSCODE"}</span><h2 role="status">{payload ? "Die Musterlösungen sind geöffnet." : "Erst selbst versuchen. Dann vergleichen."}</h2><p>Im geöffneten Kapitel kannst du Beispiele und Hinweise direkt nutzen. Den zusätzlichen Code für die Musterlösungen erhältst du von deiner Lehrkraft. Er gilt für dieses Kapitel bis zum Neuladen der Seite.</p></div>
     {payload ? <button className="secondaryButton" onClick={lock}>Lösungen wieder sperren</button> : <UnlockForm scope={scope} />}

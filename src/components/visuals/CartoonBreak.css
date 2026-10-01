@@ -1,0 +1,11 @@
+.cartoon-break { display:grid; grid-template-columns:minmax(150px,.75fr) minmax(0,1.4fr); gap:24px; align-items:center; margin:32px 0; padding:22px; border:1px solid #d9d8bf; border-radius:14px; background:#fffbee; color:#183e32; }
+.cartoon-break img { display:block; width:100%; max-height:220px; height:auto; object-fit:contain; border-radius:10px; }
+.cartoon-break .cartoon-kicker { font:700 10px/1.5 Arial,sans-serif; letter-spacing:.09em; }
+.cartoon-break .cartoon-joke { font:italic 21px/1.5 Georgia,serif; margin:14px 0; }
+.cartoon-break .cartoon-question { font:14px/1.7 Arial,sans-serif; padding:12px 0; border-top:1px solid #dadac4; margin:14px 0; }
+.cartoon-break summary { font:700 13px/1.6 Arial,sans-serif; cursor:pointer; }
+.cartoon-break details p { font:14px/1.7 Arial,sans-serif; }
+.cartoon-break small { display:block; margin-top:14px; font:11px/1.5 Arial,sans-serif; color:#677057; }
+.cartoon-break summary:focus-visible { outline:3px solid #306ec5; outline-offset:4px; }
+@media(max-width:540px) { .cartoon-break { grid-template-columns:1fr; gap:13px; } .cartoon-break img { max-width:230px; margin:auto; } }
+@media print { .cartoon-break { break-inside:avoid; } }

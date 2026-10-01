@@ -1,11 +1,13 @@
 import { useEffect, useId, useRef, useState, type FormEvent, type ReactNode } from "react";
 import type { BeginnerCourse } from "../learningTypes";
+import type { StudyGuide } from "../studyTypes";
 import type { LabConfig } from "./ModuleExercises";
 import type { ModuleTheoryConfig } from "./ModuleTheory";
 import { useProtected } from "./ProtectedContent";
 import type { PracticeTask } from "./PracticeView";
 import type { BubbleConfig } from "./BubbleSortLab";
-export type ChapterPayload = { version: 1; kind: "chapter" | "project"; title: string; course?: BeginnerCourse; theory?: ModuleTheoryConfig; beginner?: { plain: string; picture: string; miniTask: string }; lab?: LabConfig; html?: string; practice?: PracticeTask[]; bubble?: BubbleConfig };
+import { isTeacherPreview, readTeacherPreview } from "../teacherPreview";
+export type ChapterPayload = { version: 1; kind: "chapter" | "project"; title: string; course?: BeginnerCourse; theory?: ModuleTheoryConfig; beginner?: { plain: string; picture: string; miniTask: string }; lab?: LabConfig; html?: string; practice?: PracticeTask[]; bubble?: BubbleConfig; study?: StudyGuide };
 const bytes = (value: string) => Uint8Array.from(atob(value), c => c.charCodeAt(0));
 export default function ChapterGate({ scope, title, project = false, children }: { scope: string; title: string; project?: boolean; children: (payload: ChapterPayload) => ReactNode }) {
   const [payload, setPayload] = useState<ChapterPayload | null>(null);
@@ -15,6 +17,18 @@ export default function ChapterGate({ scope, title, project = false, children }:
   const solutionAccess = useProtected(scope);
   const id = useId();
   const contentRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (!isTeacherPreview) return;
+    const controller = new AbortController();
+    setPayload(null); setError("");
+    readTeacherPreview<ChapterPayload>("access", scope, controller.signal)
+      .then(result => {
+        if (result.version !== 1 || result.kind !== (project ? "project" : "chapter")) throw Error("Der Vorschauinhalt passt nicht zu diesem Bereich.");
+        if (!controller.signal.aborted) setPayload(result);
+      })
+      .catch(cause => { if (!controller.signal.aborted) setError(cause instanceof Error ? cause.message : "Vorschau konnte nicht geöffnet werden."); });
+    return () => controller.abort();
+  }, [scope, project]);
   useEffect(() => {
     if (!payload) return;
     requestAnimationFrame(() => {
@@ -47,7 +61,8 @@ export default function ChapterGate({ scope, title, project = false, children }:
     finally { setBusy(false); }
   }
   function lock() { setPayload(null); setCode(""); setError(""); solutionAccess.lock(); }
-  if (payload) return <div ref={contentRef}><div className="chapterOpenBar" role="status"><span>✓ {title} ist freigegeben</span><button className="secondaryButton" onClick={lock}>{project ? "Projekt" : "Kapitel"} wieder sperren</button></div>{children(payload)}</div>;
+  if (payload) return <div ref={contentRef}><div className="chapterOpenBar" role="status"><span>✓ {title} ist {isTeacherPreview ? "in der lokalen Vorschau ohne Code geöffnet" : "freigegeben"}</span>{!isTeacherPreview && <button className="secondaryButton" onClick={lock}>{project ? "Projekt" : "Kapitel"} wieder sperren</button>}</div>{children(payload)}</div>;
+  if (isTeacherPreview) return <section className="chapterGate"><h2>{title}</h2><p role={error ? "alert" : "status"}>{error || "Die lokale Lehrkraftvorschau wird ohne Code geöffnet …"}</p></section>;
   return <section className="chapterGate" aria-labelledby={id + "-title"}>
     <span className="eyebrow">🔒 {project ? "PROJEKTFREIGABE" : "KAPITELFREIGABE"}</span><h2 id={id + "-title"}>{title} wartet auf deine Freigabe</h2>
     <p>{project ? "Die Projektbeschreibung bleibt bis zur Freigabe verborgen. Jedes Projekt hat seinen eigenen Code." : "Deine Lehrkraft gibt dir den Code, wenn du für dieses Kapitel bereit bist. Die Bearbeitung allein schaltet kein weiteres Kapitel frei."}</p>

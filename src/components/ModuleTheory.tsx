@@ -1,5 +1,7 @@
 import Link from "next/link";
+import type { ReactNode } from "react";
 import { Solution } from "./ProtectedContent";
+import TheoryVisual from "./visuals/TheoryVisual";
 type DiagramNode = { title: string; text: string };
 
 export type ModuleTheoryConfig = {
@@ -13,14 +15,14 @@ export type ModuleTheoryConfig = {
   toolTask?: { tool: "Scratch" | "BlueJ"; title: string; intro: string; steps: string[]; extension: string };
 };
 
-export default function ModuleTheory({ slug, config, beginner }: { slug: string; config: ModuleTheoryConfig; beginner: { plain: string; picture: string; miniTask: string } }) {
+export default function ModuleTheory({ slug, config, beginner, afterReading }: { slug: string; config: ModuleTheoryConfig; beginner: { plain: string; picture: string; miniTask: string }; afterReading?: ReactNode }) {
 
   return (
     <>
       <article className="theoryChapter">
         <div className="chapterKicker"><span>GRUNDLAGEN</span><span>{config.readingTime} Lesezeit</span></div>
         <h2>Schritt für Schritt verstehen</h2>
-        <p className="chapterLead">Du brauchst für dieses Kapitel kein Vorwissen. Lies zuerst den einfachen Einstieg und danach den ausführlichen Text. Unbekannte Begriffe findest du weiter unten in der Begriffsbox.</p>
+        <p className="chapterLead">Beginne mit dem einfachen Einstieg. Der Lernstart oben zeigt dir, welche Grundlagen du vorher noch einmal ansehen solltest. Lies abschnittsweise und erkläre dir nach jedem Abschnitt ein eigenes Beispiel. Unbekannte Begriffe findest du in der Begriffsbox.</p>
 
         <section className="beginnerBox" aria-labelledby={`beginner-${slug}`}>
           <div className="beginnerLabel">GANZ EINFACH GESAGT</div>
@@ -32,10 +34,11 @@ export default function ModuleTheory({ slug, config, beginner }: { slug: string;
           <Solution scope={slug} id="mini" title="Lösung zum 60-Sekunden-Start" />
         </section>
 
-        {config.sections.map((section) => (
-          <section className="theorySection" key={section.title}>
+        {config.sections.map((section, sectionIndex) => (
+          <section className="theorySection" id={`theorie-${slug}-${sectionIndex + 1}`} key={section.title}>
             <h3>{section.title}</h3>
             {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+            <TheoryVisual slug={slug} sectionIndex={sectionIndex} />
           </section>
         ))}
 
@@ -64,10 +67,11 @@ export default function ModuleTheory({ slug, config, beginner }: { slug: string;
         <p className="exampleResult"><strong>Ergebnis:</strong> {config.example.result}</p>
       </article>
 
-      <section className="paperSection">
+      {afterReading}
+      <section className="paperSection" id="heftaufgaben">
         <div className="paperHeading"><div><div className="eyebrow">PAPIER & HEFT</div><h2>Übungsblatt zum Kapitel</h2></div><span>{config.paperTasks.length} Arbeitsaufträge</span></div>
         <p className="paperIntro">Bearbeite die Aufgaben mit vollständigem Rechenweg oder einer nachvollziehbaren Begründung. Vergleiche anschließend zu zweit und verbessert unklare Stellen gemeinsam.</p>
-        <ol className="paperGrid">{config.paperTasks.map((task, index) => <li key={task.title}><span>{task.type} · Aufgabe {index + 1}</span><h3>{task.title}</h3><p>{task.prompt}</p><Solution scope={slug} id={`paper-${index + 1}`} /></li>)}</ol>
+        <ol className="paperGrid">{config.paperTasks.map((task, index) => <li key={task.title} id={`aufgabe-paper-${index + 1}`}><span>{task.type} · Aufgabe {index + 1}</span><h3>{task.title}</h3><p>{task.prompt}</p><Solution scope={slug} id={`paper-${index + 1}`} /></li>)}</ol>
       </section>
 
       {config.toolTask && <article className={`toolAssignment ${config.toolTask.tool.toLowerCase()}`}>

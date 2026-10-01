@@ -1,0 +1,23 @@
+.island-workshop { margin:30px 0; padding:clamp(17px,3vw,28px); border:1px solid #adc5ad; border-radius:15px; color:#183e32; background:#fffefa; min-width:0; }
+.island-workshop .island-workshop-heading { display:grid; grid-template-columns:110px minmax(0,1fr); gap:20px; align-items:start; }
+.island-workshop .island-workshop-heading svg { width:110px; height:auto; }
+.island-workshop .island-kicker { font:700 11px/1.5 Arial,sans-serif; letter-spacing:.1em; }
+.island-workshop h3 { margin:9px 0 14px; font:700 clamp(23px,3vw,29px)/1.25 Arial,sans-serif; }
+.island-workshop p,.island-workshop li { font:15px/1.75 Arial,sans-serif; }
+.island-workshop a:not(.island-primary) { text-decoration:underline; text-underline-offset:3px; }
+.island-workshop .island-prerequisite { border-left:4px solid #769453; padding:14px 16px; background:#eef3e5; }
+.island-workshop .island-actions { display:flex; flex-wrap:wrap; gap:10px; margin:20px 0; }
+.island-workshop button,.island-workshop .island-primary { display:inline-flex; align-items:center; justify-content:center; min-height:46px; padding:10px 16px; border:1px solid #78917b; border-radius:8px; background:#fffefa; color:#183e32; font:700 14px/1.5 Arial,sans-serif; text-decoration:none; cursor:pointer; }
+.island-workshop .island-primary { background:#183e32; color:#fffefa; }
+.island-workshop button:hover { background:#edf3e6; }
+.island-workshop :is(button,a,input,summary):focus-visible { outline:3px solid #306ec5; outline-offset:4px; }
+.island-workshop .island-external-note,.island-workshop .island-credit { font-size:13px; color:#506554; }
+.island-workshop details { margin-top:18px; padding:17px; border:1px solid #ccd7c3; border-radius:9px; background:#f4f7ed; }
+.island-workshop summary { cursor:pointer; font:700 16px/1.5 Arial,sans-serif; }
+.island-workshop ol { padding-left:24px; }
+.island-workshop .island-missions li { padding-block:10px; }
+.island-workshop .island-missions label { display:flex; align-items:flex-start; gap:12px; cursor:pointer; }
+.island-workshop .island-missions input { flex-shrink:0; width:20px; height:20px; accent-color:#183e32; margin-top:4px; }
+.island-workshop .island-progress { font-weight:700; }
+@media(max-width:580px) { .island-workshop .island-workshop-heading { grid-template-columns:1fr; gap:5px; } .island-workshop .island-workshop-heading svg { width:90px; } .island-workshop .island-actions > * { flex:1 1 240px; text-align:center; } }
+@media print { .island-workshop .island-actions { display:none; } .island-workshop { break-inside:avoid; } }

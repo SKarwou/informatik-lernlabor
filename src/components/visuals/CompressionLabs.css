@@ -1,0 +1,92 @@
+.complab {
+  --complab-ink: #163b30;
+  --complab-line: #bdcdbf;
+  margin-block: 32px;
+  padding: clamp(18px, 3vw, 30px);
+  border: 1px solid var(--complab-line);
+  border-radius: 16px;
+  background: #f8faf3;
+  color: #17392e;
+  min-width: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.complab .complab-header h3 { margin: 10px 0 16px; font: 400 clamp(25px, 4vw, 32px)/1.18 Georgia, serif; letter-spacing: -.025em; }
+.complab .complab-header p { margin-block: 0 22px; }
+.complab p { font-size: 15px; line-height: 1.7; overflow-wrap: anywhere; }
+.complab h4 { font-size: 18px; line-height: 1.4; margin: 0 0 12px; }
+.complab code { font: 700 .98em/1.6 ui-monospace, SFMono-Regular, Consolas, monospace; overflow-wrap: anywhere; }
+.complab-kicker { display: block; color: #44614c; font-size: 11px; line-height: 1.5; font-weight: 800; letter-spacing: .08em; }
+.complab-panel { background: #fffefa; border: 1px solid #d3ded0; border-radius: 12px; padding: 20px; margin-block: 18px; min-width: 0; }
+.complab-panel > p:first-of-type { margin-top: 0; }
+.complab .complab-caption { font-size: 12px; line-height: 1.65; color: #4c6256; margin-bottom: 0; }
+.complab-scroll { max-width: 100%; overflow-x: auto; padding: 7px 5px 12px; margin-inline: -5px; scrollbar-width: thin; }
+.complab-bitrow { display: grid; grid-template-columns: repeat(9, minmax(44px, 1fr)); gap: 6px; min-width: 444px; }
+.complab-bitcell { display: grid; gap: 6px; justify-items: center; padding-block: 6px; }
+.complab-position { font: 12px/1.4 ui-monospace, monospace; color: #4c6256; }
+.complab-bit, .complab-pixel { display: grid; place-items: center; border: 2px solid #52675a; border-radius: 7px; font: 700 23px/1 ui-monospace, monospace; width: 100%; min-height: 46px; padding: 0; }
+.complab-bit-0 { background: #fff; color: #183e32; }
+.complab-bit-1 { background: #163b30; color: #fff; }
+.complab-bitcell small, .complab-pixelcell small { font-size: 10px; line-height: 1.4; text-align: center; }
+.complab-controlbit { background: #e6f2c9; border-radius: 8px; outline: 1px dashed #587432; outline-offset: 1px; }
+.complab-controlbit .complab-bit { width: calc(100% - 6px); }
+.complab .complab-bit-changed { border-color: #a6491c; box-shadow: 0 0 0 3px #ffe1b9; }
+.complab .complab-bitcell:has(.complab-bit-changed) small { color: #873918; font-weight: 800; }
+.complab-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-block: 18px; }
+.complab .complab-button { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; border: 1px solid #6b846e; border-radius: 8px; padding: 10px 13px; background: #fffefa; color: #173d2e; font-size: 13px; font-weight: 700; line-height: 1.5; cursor: pointer; }
+.complab .complab-button-primary { background: #183e32; color: #fff; border-color: #183e32; }
+.complab .complab-button:disabled { opacity: .5; cursor: not-allowed; }
+.complab button:not(:disabled):hover { filter: brightness(.94); }
+.complab button:focus-visible, .complab summary:focus-visible, .complab-scroll:focus-visible { outline: 3px solid #286dd1; outline-offset: 4px; }
+.complab-result { border-radius: 12px; padding: 20px; margin-block: 20px; border: 1px solid var(--complab-line); }
+.complab-result-neutral { background: #eaf1df; }
+.complab-result-warning { background: #fff0d7; border-color: #b8944e; }
+.complab-result > strong { display: block; font: 400 28px/1.35 Georgia, serif; margin-top: 10px; }
+.complab-result > p:last-child { margin-bottom: 0; }
+.complab .complab-observation { border-top: 1px solid #b2c2a6; padding-top: 14px; font-size: 13px; }
+.complab-example { margin-block: 22px; border-top: 1px solid #b8cbb3; border-bottom: 1px solid #b8cbb3; padding: 16px 0; }
+.complab-example summary { font-size: 14px; line-height: 1.6; font-weight: 700; cursor: pointer; }
+.complab-example ol { padding-left: 24px; margin-bottom: 0; }
+.complab-example li { padding-left: 5px; font-size: 14px; line-height: 1.8; margin-block: 9px; }
+.complab .complab-remember { border-left: 4px solid #a3c86b; background: #173c30; color: #fff; border-radius: 0 8px 8px 0; padding: 17px 20px; margin-bottom: 12px; }
+.complab-pixels { display: grid; grid-template-columns: repeat(12, minmax(44px, 1fr)); gap: 3px; min-width: 561px; }
+.complab-pixelcell { display: grid; gap: 7px; justify-items: center; padding: 5px 2px; border: 2px solid transparent; border-radius: 7px; }
+.complab-pixel { min-height: 44px; min-width: 38px; font-size: 18px; border-radius: 3px; }
+.complab-group-0 { border-color: #64894d; background: #eaf4de; }
+.complab-group-1 { border-color: #477da3; background: #e6f0f7; }
+.complab-group-2 { border-color: #a97736; background: #fcf0dc; }
+.complab-current { border-style: dashed; }
+.complab-model { background: #edf2f6; border: 1px solid #bfd0da; padding: 20px; border-radius: 12px; margin-block: 22px; }
+.complab-model p { margin-bottom: 10px; }
+.complab-step-status { background: #eef4e6; border-left: 3px solid #719658; padding: 14px 18px; min-height: 110px; }
+.complab-step-status > strong { font-size: 15px; }
+.complab-step-status p { margin-block: 7px 0; font-size: 14px; }
+.complab-runlist { display: grid; grid-template-columns: repeat(auto-fit, minmax(135px, 1fr)); gap: 10px; list-style: none; padding: 0; }
+.complab-runcard { border-width: 2px; border-style: solid; border-radius: 8px; padding: 13px; display: grid; gap: 8px; }
+.complab-runcard > span { font-size: 11px; font-weight: 700; }
+.complab-runcard > strong { font-size: 14px; }
+.complab-runcard > code { font-size: 16px; white-space: nowrap; }
+.complab-runcard > small { font-size: 11px; line-height: 1.5; }
+.complab-size-comparison { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 17px; }
+.complab-size-comparison > div { display: grid; gap: 8px; padding: 16px; background: #fffefa; border: 1px solid #ccd6c4; border-radius: 8px; }
+.complab-size-comparison span { font-size: 12px; line-height: 1.5; font-weight: 700; }
+.complab-size-comparison strong { font: 400 29px/1.2 Georgia, serif; }
+.complab-size-comparison small { font-size: 12px; line-height: 1.4; }
+@media (max-width: 520px) {
+  .complab { padding: 17px; }
+  .complab-panel, .complab-model, .complab-result { padding: 16px; }
+  .complab-size-comparison { grid-template-columns: 1fr; }
+  .complab-controls .complab-button { flex: 1 1 150px; }
+  .complab-runlist { grid-template-columns: repeat(auto-fit, minmax(115px, 1fr)); }
+  .complab-step-status { min-height: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .complab *, .complab *::before, .complab *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
+@media print {
+  .complab { break-inside: auto; background: white; }
+  .complab-controls { display: none; }
+  .complab-scroll { overflow: visible; }
+  .complab-bitrow, .complab-pixels { min-width: 0; }
+  .complab-bit, .complab-pixel { min-width: 0; }
+  .complab-bit-1, .complab-remember { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+}

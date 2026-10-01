@@ -1,0 +1,121 @@
+.maniplab { margin-block: 30px; padding: clamp(18px, 3vw, 30px); min-width: 0; border: 1px solid #bbcbb3; border-radius: 15px; background: #fffefa; color: #173c30; font: 16px/1.7 Arial, Helvetica, sans-serif; }
+.maniplab-series { min-width:0; }
+.maniplab-series .maniplab-round[hidden] { display:none !important; }
+.maniplab-round-picker { padding:22px; border:1px solid #bbcbb3; border-radius:14px; background:#edf3e5; color:#183e32; }
+.maniplab-round-picker h3 { margin:0 0 12px; font:400 26px/1.3 Georgia,serif; }
+.maniplab-round-picker p { font:14px/1.75 Arial,sans-serif; margin:12px 0 18px; }
+.maniplab-round-picker [role="group"] { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
+.maniplab-round-picker button { min-width:0; min-height:78px; padding:14px; border:1px solid #8ba07e; border-radius:9px; text-align:left; font:700 14px/1.5 Arial,sans-serif; color:#183e32; background:#fffefa; cursor:pointer; overflow-wrap:anywhere; }
+.maniplab-round-picker button span { display:block; font-size:11px; letter-spacing:.07em; text-transform:uppercase; margin-bottom:5px; }
+.maniplab-round-picker button[aria-pressed="true"] { background:#183e32; color:#fffefa; }
+.maniplab-round-picker button:focus-visible { outline:3px solid #2169b7; outline-offset:3px; }
+.maniplab .maniplab-why { padding:15px 18px; border-left:4px solid #759954; background:#f0f5e8; font-size:15px; }
+.maniplab .maniplab-demo { padding:20px; margin:23px 0; background:#edf3f5; border:1px solid #bacdd0; border-radius:11px; }
+.maniplab .maniplab-demo summary { cursor:pointer; font:700 17px/1.6 Arial,sans-serif; }
+.maniplab .maniplab-demo summary:focus-visible { outline:3px solid #2169b7; outline-offset:4px; }
+.maniplab .maniplab-demo h4 { margin-top:19px; }
+.maniplab .maniplab-demo-steps { padding:0; margin:18px 0; list-style:none; display:grid; gap:10px; }
+.maniplab .maniplab-demo-steps li { display:grid; grid-template-columns:28px minmax(0,1fr); gap:12px; align-items:start; padding:15px; border:1px solid #cbd7d7; border-radius:8px; background:#fffefa; }
+.maniplab .maniplab-demo-steps li[data-current="true"] { border-color:#5d8187; box-shadow:inset 3px 0 #5d8187; }
+.maniplab .maniplab-demo-number { display:grid; place-items:center; width:27px; height:27px; border-radius:50%; background:#355c61; color:white; font-size:13px; font-weight:700; }
+.maniplab .maniplab-demo-steps p { margin:0; font-size:14px; }
+.maniplab .maniplab-demo-status { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip-path:inset(50%); white-space:nowrap; }
+.maniplab .maniplab-demo-actions { display:flex; flex-wrap:wrap; gap:9px; }
+.maniplab .maniplab-demo-done { border-top:1px solid #b8cbce; padding-top:15px; font-size:14px; }
+.maniplab .maniplab-strategy { margin:24px 0; }
+.maniplab .maniplab-strategy ol, .maniplab .maniplab-instructions ol { padding-left:24px; margin:14px 0; }
+.maniplab .maniplab-strategy li, .maniplab .maniplab-instructions li { padding:4px 0 4px 4px; font:14px/1.75 Arial,sans-serif; }
+.maniplab .maniplab-strategy > p { padding:14px 17px; background:#fff6df; border-radius:8px; font-size:14px; }
+.maniplab *, .maniplab *::before, .maniplab *::after { box-sizing: border-box; }
+.maniplab [hidden] { display: none !important; }
+.maniplab .maniplab-kicker { display: block; font: 800 11px/1.6 Arial, sans-serif; letter-spacing: .09em; text-transform: uppercase; color: #496741; }
+.maniplab .maniplab-header h3 { margin: 10px 0 17px; font: 400 clamp(25px, 3.5vw, 34px)/1.23 Georgia, serif; letter-spacing: -.02em; color: #183e32; }
+.maniplab p { margin: 12px 0; font: 15px/1.75 Arial, sans-serif; overflow-wrap: anywhere; }
+.maniplab .maniplab-header p { font-size: 16px; max-width: 76ch; }
+.maniplab h4 { margin: 0; font: 700 18px/1.5 Arial, sans-serif; overflow-wrap: anywhere; }
+.maniplab button { min-height: 44px; max-width: 100%; padding: 10px 13px; border: 1px solid #81977c; border-radius: 7px; background: #fffefa; color: #183e32; font: 700 13px/1.5 Arial, sans-serif; cursor: pointer; overflow-wrap: anywhere; }
+.maniplab button:hover:not(:disabled) { background: #e7f0dc; border-color: #345b37; }
+.maniplab button:disabled { opacity: .55; cursor: not-allowed; }
+.maniplab button:focus-visible { outline: 3px solid #2169b7; outline-offset: 4px; position: relative; z-index: 1; }
+.maniplab .maniplab-task { margin-block: 22px; padding: 18px 20px; background: #f5efdc; border-left: 4px solid #a88a39; border-radius: 0 9px 9px 0; }
+.maniplab .maniplab-instructions { padding: 18px 20px; background: #f1f5e9; border: 1px solid #d3dfc8; border-radius: 10px; }
+.maniplab .maniplab-instructions > strong { font-size: 14px; }
+.maniplab .maniplab-instructions p { margin-bottom: 0; font-size: 13px; }
+.maniplab .maniplab-selection { display: grid; gap: 5px; margin-block: 22px 18px; padding: 13px 16px; background: #eef2f6; border: 1px solid #bbcbd3; border-radius: 8px; color: #264354; }
+.maniplab .maniplab-selection > strong { font-size: 14px; overflow-wrap: anywhere; }
+.maniplab .maniplab-selection > span { font-size: 12px; line-height: 1.7; overflow-wrap: anywhere; }
+.maniplab .maniplab-order { display: grid; gap: 12px; list-style: none; padding: 0; margin: 22px 0; }
+.maniplab .maniplab-order-row { display: grid; grid-template-columns: 32px minmax(0, 1fr) 83px; align-items: center; gap: 9px; padding: 10px; margin: 0; border: 2px solid #d3deca; border-radius: 11px; background: #f3f6ec; min-width: 0; }
+.maniplab .maniplab-position { display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: #dfeace; color: #355534; font: 700 15px/1 ui-monospace, monospace; }
+.maniplab .maniplab-card { min-width: 0; margin: 0; padding: 0; border: 2px solid #bacdad; border-radius: 9px; background: #fffefa; cursor: grab; list-style: none; }
+.maniplab .maniplab-card:active { cursor: grabbing; }
+.maniplab .maniplab-card[data-selected="true"] { border-color: #365d35; box-shadow: 0 0 0 2px #c9f27f; background: #e9f5d6; }
+.maniplab .maniplab-card-button { display: grid; grid-template-columns: 16px minmax(0, 1fr); gap: 6px 10px; width: 100%; min-height: 82px; padding: 12px 14px; border: 0; background: transparent; text-align: left; border-radius: 6px; }
+.maniplab .maniplab-card-button:hover:not(:disabled) { background: #eef4e6; }
+.maniplab .maniplab-card-button[aria-pressed="true"] { background: #e9f5d6; color: #173c30; }
+.maniplab .maniplab-card-grip { font-size: 22px; line-height: 1.2; color: #5b7650; grid-row: 1 / 3; cursor: grab; }
+.maniplab .maniplab-card-text { font: 700 15px/1.65 Arial, sans-serif; white-space: normal; overflow-wrap: anywhere; }
+.maniplab .maniplab-card-selection { font: 400 11px/1.6 Arial, sans-serif; color: #4b6441; }
+.maniplab .maniplab-card-button[aria-pressed="true"] .maniplab-card-selection { font-weight: 700; color: #294c29; }
+.maniplab .maniplab-move-buttons { display: grid; gap: 5px; }
+.maniplab .maniplab-move-buttons button { padding: 7px 8px; font-size: 13px; min-height: 44px; }
+.maniplab .maniplab-place { grid-column: 2; justify-self: start; min-height: 44px; padding: 6px 11px; font-size: 11px; background: #edf4e4; }
+.maniplab .maniplab-group { padding: 18px; min-width: 0; border: 2px solid #c7d5bd; border-radius: 11px; background: #f3f6ed; }
+.maniplab .maniplab-group > header { display: flex; align-items: flex-start; justify-content: space-between; gap: 9px; }
+.maniplab .maniplab-count { flex-shrink: 0; padding: 3px 7px; border-radius: 5px; background: #e2ebd6; color: #48633e; font: 700 11px/1.8 Arial, sans-serif; }
+.maniplab .maniplab-group .maniplab-group-description { margin: 9px 0 13px; color: #4f6547; font-size: 13px; }
+.maniplab .maniplab-target { width: 100%; background: #e5efd8; font-size: 12px; text-align: center; }
+.maniplab .maniplab-group-cards { display: grid; gap: 11px; padding: 0; margin: 16px 0 0; list-style: none; }
+.maniplab .maniplab-classify > .maniplab-group .maniplab-group-cards { grid-template-columns: repeat(auto-fit, minmax(min(100%, 205px), 1fr)); }
+.maniplab .maniplab-category-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); align-items: stretch; gap: 16px; margin-top: 18px; }
+.maniplab .maniplab-category-grid > div { min-width: 0; }
+.maniplab .maniplab-category-grid .maniplab-group { height: 100%; }
+.maniplab .maniplab-empty { color: #5d6f53; font-size: 12px; padding: 15px 8px; text-align: center; border: 1px dashed #b2c3a4; border-radius: 7px; }
+.maniplab .maniplab-group[data-drop-active="true"], .maniplab .maniplab-order-row[data-drop-active="true"] { border-color: #294d2d; background: #dcefc5; box-shadow: inset 0 0 0 2px #527a3e; }
+.maniplab .maniplab-actions { display: flex; flex-wrap: wrap; gap: 9px; margin-block: 25px 18px; }
+.maniplab button.maniplab-primary { background: #183e32; color: #fffefa; border-color: #183e32; }
+.maniplab button.maniplab-primary:hover { background: #2b5841; }
+.maniplab .maniplab-feedback { padding: 18px 20px; background: #f5f1e3; border-left: 4px solid #a88a39; border-radius: 0 9px 9px 0; }
+.maniplab .maniplab-feedback > strong { font-size: 16px; }
+.maniplab .maniplab-feedback p { margin: 7px 0 0; font-size: 14px; }
+.maniplab .maniplab-feedback[data-correct="true"] { border-color: #557b37; background: #eaf4dd; }
+.maniplab .maniplab-hint { padding: 18px 20px; margin-top: 17px; border: 1px solid #b6c9d7; border-radius: 8px; background: #eef3f7; color: #2c495a; }
+.maniplab .maniplab-hint p { margin-bottom: 0; font-size: 14px; }
+.maniplab .maniplab-supplement { padding-top: 18px; margin-top: 22px; border-top: 1px solid #cdd9c4; }
+.maniplab .maniplab-supplement p { font-size: 12px; color: #52694a; }
+.maniplab .maniplab-solution { margin-top: 20px; padding: 20px; background: #f0f5e8; border: 1px solid #a9bf93; border-radius: 10px; }
+.maniplab .maniplab-solution ol, .maniplab .maniplab-solution ul { margin: 18px 0; padding-left: 25px; }
+.maniplab .maniplab-solution li { padding-left: 5px; margin-bottom: 18px; font-size: 14px; line-height: 1.65; overflow-wrap: anywhere; }
+.maniplab .maniplab-solution li p { margin: 5px 0 0; font-size: 13px; }
+.maniplab .maniplab-takeaway { padding: 16px; background: #183e32; color: #fffefa; border-radius: 7px; font-size: 14px; }
+@media (max-width: 600px) {
+  .maniplab-round-picker { padding:18px 14px; }
+  .maniplab-round-picker [role="group"] { grid-template-columns:1fr; }
+  .maniplab .maniplab-demo { padding:16px 13px; }
+  .maniplab .maniplab-demo-steps li { padding:12px; gap:9px; }
+  .maniplab .maniplab-demo-actions button { flex:1 1 160px; }
+  .maniplab { padding: 18px 14px; }
+  .maniplab .maniplab-order-row { grid-template-columns: 27px minmax(0, 1fr); gap: 8px; padding: 9px; }
+  .maniplab .maniplab-position { width: 25px; height: 25px; font-size: 13px; }
+  .maniplab .maniplab-move-buttons { grid-column: 2; display: flex; gap: 7px; }
+  .maniplab .maniplab-move-buttons button { flex: 1; min-height: 44px; }
+  .maniplab .maniplab-place { width: 100%; min-height: 44px; }
+  .maniplab .maniplab-card-button { padding: 11px; gap: 5px 7px; }
+  .maniplab .maniplab-card-text { font-size: 14px; }
+  .maniplab .maniplab-group { padding: 15px; }
+  .maniplab .maniplab-actions > button { flex: 1 1 140px; }
+  .maniplab .maniplab-instructions, .maniplab .maniplab-task, .maniplab .maniplab-feedback { padding: 16px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .maniplab *, .maniplab *::before, .maniplab *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
+@media print {
+  .maniplab-round-picker,.maniplab .maniplab-demo-actions { display:none; }
+  .maniplab { padding: 15px; border-radius: 0; background: white; }
+  .maniplab .maniplab-instructions, .maniplab .maniplab-selection, .maniplab .maniplab-actions, .maniplab .maniplab-move-buttons, .maniplab .maniplab-place, .maniplab .maniplab-target, .maniplab .maniplab-card-grip, .maniplab .maniplab-card-selection, .maniplab .maniplab-supplement { display: none; }
+  .maniplab .maniplab-order-row { grid-template-columns: 28px minmax(0, 1fr); break-inside: avoid; }
+  .maniplab .maniplab-card-button { display: block; min-height: 0; color: black; }
+  .maniplab .maniplab-card { break-inside: avoid; box-shadow: none; }
+  .maniplab .maniplab-category-grid { grid-template-columns: 1fr; }
+  .maniplab .maniplab-takeaway { background: #eef1e8; color: black; }
+}

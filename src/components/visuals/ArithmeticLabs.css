@@ -1,0 +1,129 @@
+.arithlab {
+  --arithlab-ink: #183e32;
+  --arithlab-muted: #4f6257;
+  --arithlab-border: #c8d4c5;
+  margin: 28px 0;
+  padding: clamp(18px, 3vw, 30px);
+  min-width: 0;
+  border: 1px solid var(--arithlab-border);
+  border-radius: 14px;
+  background: #fffefa;
+  color: #12221d;
+  font: 16px/1.65 Arial, Helvetica, sans-serif;
+}
+.arithlab *, .arithlab *::before, .arithlab *::after { box-sizing: border-box; }
+.arithlab .arithlab-header h3 { margin: 8px 0 16px; color: var(--arithlab-ink); font: 400 clamp(25px, 3vw, 32px)/1.16 Georgia, serif; letter-spacing: -.02em; }
+.arithlab .arithlab-header p { max-width: 70ch; margin: 0 0 22px; font-size: 16px; line-height: 1.75; }
+.arithlab .arithlab-kicker { display: block; color: #466c38; font: 800 12px/1.5 Arial, sans-serif; letter-spacing: .08em; text-transform: uppercase; }
+.arithlab p { margin: 12px 0; overflow-wrap: anywhere; }
+.arithlab button, .arithlab select { font: inherit; color: var(--arithlab-ink); }
+.arithlab button { min-height: 44px; border: 1px solid #81977e; border-radius: 7px; padding: 9px 13px; background: #fffefa; font-size: 14px; font-weight: 700; line-height: 1.45; cursor: pointer; }
+.arithlab button:hover:not(:disabled) { background: #e8f1dc; border-color: #264d37; }
+.arithlab button:disabled { cursor: not-allowed; color: #6b756d; opacity: .65; }
+.arithlab button[aria-pressed="true"], .arithlab button.arithlab-primary { background: #183e32; color: #fffefa; border-color: #183e32; }
+.arithlab button[aria-pressed="true"]:hover:not(:disabled), .arithlab button.arithlab-primary:hover:not(:disabled) { background: #285840; }
+.arithlab :is(button, select, summary, [tabindex="0"]):focus-visible { outline: 3px solid #2865b7; outline-offset: 4px; }
+.arithlab .arithlab-inputs { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; padding: 18px; background: #f1f5e9; border-radius: 10px; }
+.arithlab .arithlab-inputs label { flex: 1 1 170px; display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 10px; row-gap: 8px; font-size: 14px; font-weight: 700; }
+.arithlab .arithlab-inputs select { grid-column: 1; width: 100%; min-height: 44px; padding: 8px 12px; border: 1px solid #879f7c; border-radius: 6px; background: #fffefa; font-size: 19px; }
+.arithlab .arithlab-input-bits { align-self: center; grid-column: 2; grid-row: 2; font: 700 22px/1.5 ui-monospace, monospace; }
+.arithlab .arithlab-operator { flex: 0 0 auto; align-self: end; padding-bottom: 7px; font-size: 28px; }
+.arithlab .arithlab-direction { margin: 22px 0 15px; font-size: 14px; }
+.arithlab .arithlab-table-scroll { max-width: 100%; overflow-x: auto; border: 1px solid var(--arithlab-border); border-radius: 8px; }
+.arithlab .arithlab-addition { width: 100%; min-width: 410px; border-collapse: collapse; table-layout: fixed; font-variant-numeric: tabular-nums; }
+.arithlab .arithlab-addition caption { padding: 13px 16px; text-align: left; font-size: 14px; font-weight: 700; background: #edf2e5; }
+.arithlab .arithlab-addition th:first-child { width: 31%; text-align: left; }
+.arithlab .arithlab-addition th { font-size: 13px; line-height: 1.35; font-weight: 700; }
+.arithlab .arithlab-addition th, .arithlab .arithlab-addition td { border-top: 1px solid #d9e0d3; padding: 13px 8px; vertical-align: middle; }
+.arithlab .arithlab-addition td { text-align: center; font: 700 23px/1.3 ui-monospace, monospace; }
+.arithlab .arithlab-addition small { display: block; margin-top: 4px; font: 400 11px/1.3 Arial, sans-serif; overflow-wrap: normal; }
+.arithlab .arithlab-addition thead { background: #f5f7ef; }
+.arithlab .arithlab-addition thead .arithlab-cell { text-align: center; font-size: 18px; }
+.arithlab .arithlab-addition .arithlab-extra { border-right: 2px dashed #829577; background: #f4f0e7; }
+.arithlab .arithlab-addition .arithlab-carry-row { background: #f2f6ef; color: #466b38; }
+.arithlab .arithlab-addition .arithlab-carry-row td { font-size: 19px; }
+.arithlab .arithlab-addition .arithlab-sum-row th, .arithlab .arithlab-addition .arithlab-sum-row td { border-top: 2px solid #2b4c38; }
+.arithlab .arithlab-addition .arithlab-result-row { background: #e2efd2; color: #183e32; }
+.arithlab .arithlab-addition .arithlab-result-row td { font-size: 26px; }
+.arithlab .arithlab-addition .arithlab-active { background: #fff0b6; box-shadow: inset 2px 0 #93722d, inset -2px 0 #93722d; color: #44320d; }
+.arithlab .arithlab-note { color: var(--arithlab-muted); font-size: 13px; line-height: 1.65; }
+.arithlab .arithlab-controls { display: flex; gap: 9px; flex-wrap: wrap; margin: 22px 0; }
+.arithlab .arithlab-explanation { margin-top: 14px; padding: 20px; border-left: 4px solid #719654; border-radius: 0 8px 8px 0; background: #edf5e4; }
+.arithlab .arithlab-step { color: #506a43; font-size: 13px; }
+.arithlab .arithlab-explanation h4 { margin: 12px 0 6px; font-size: 21px; line-height: 1.4; }
+.arithlab .arithlab-equation { font: 700 clamp(19px, 2.5vw, 25px)/1.5 ui-monospace, monospace; color: #183e32; }
+.arithlab .arithlab-rule { margin-top: 22px; padding: 15px 18px; border: 1px solid #d7d9ca; border-radius: 7px; background: #f6f3e9; }
+.arithlab .arithlab-rule summary { cursor: pointer; font-weight: 700; }
+.arithlab .arithlab-rule ul { margin: 12px 0 0; padding-left: 22px; }
+.arithlab .arithlab-rule li { padding: 4px 0; }
+.arithlab .arithlab-bit-field { min-width: 0; margin: 24px 0 18px; padding: 0; border: 0; }
+.arithlab .arithlab-bit-field legend { max-width: 100%; margin-bottom: 13px; padding: 0; font-weight: 700; font-size: 15px; }
+.arithlab .arithlab-bits-scroll { max-width: 100%; padding: 5px; overflow-x: auto; }
+.arithlab .arithlab-bit-buttons { display: grid; grid-template-columns: repeat(8, minmax(44px, 1fr)); gap: clamp(4px, 1vw, 9px); min-width: 380px; }
+.arithlab .arithlab-bit-column { text-align: center; min-width: 0; padding-top: 4px; }
+.arithlab .arithlab-sign-column { border-radius: 6px; background: #fff0c3; }
+.arithlab .arithlab-bit-label { display: block; margin-bottom: 6px; font-size: 11px; color: #4e6254; }
+.arithlab button.arithlab-bit { display: block; width: 100%; min-height: 52px; padding: 7px 0; font: 700 clamp(24px, 3vw, 31px)/1.1 ui-monospace, monospace; border-width: 2px; }
+.arithlab button.arithlab-bit[aria-pressed="true"] { color: #c9f27f; }
+.arithlab .arithlab-weight { display: block; padding-top: 7px; font: 700 12px/1.5 ui-monospace, monospace; color: #264a35; }
+.arithlab .arithlab-signed-weight { padding-top: 3px; padding-bottom: 7px; color: #664615; }
+.arithlab .arithlab-presets, .arithlab .arithlab-cases { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.arithlab .arithlab-presets { margin: 15px 0 24px; }
+.arithlab .arithlab-presets > span { font-size: 13px; }
+.arithlab .arithlab-presets button { font: 700 13px/1.5 ui-monospace, monospace; }
+.arithlab .arithlab-interpretations { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid var(--arithlab-border); border-bottom: 1px solid var(--arithlab-border); }
+.arithlab .arithlab-interpretation { min-width: 0; padding: 20px 20px 20px 0; }
+.arithlab .arithlab-interpretation + .arithlab-interpretation { border-left: 1px solid var(--arithlab-border); padding-left: 20px; padding-right: 0; }
+.arithlab .arithlab-interpretation h4 { min-height: 2.8em; margin: 0; color: var(--arithlab-ink); font-size: 17px; line-height: 1.4; }
+.arithlab .arithlab-large-number { display: flex; gap: 10px; flex-wrap: wrap; align-items: baseline; margin: 12px 0; color: var(--arithlab-ink); font: 400 48px/1.1 Georgia, serif; }
+.arithlab .arithlab-large-number span { color: var(--arithlab-muted); font: 13px/1.5 Arial, sans-serif; }
+.arithlab .arithlab-weight-sum { min-height: 3.4em; margin-bottom: 20px; font: 15px/1.7 ui-monospace, monospace; }
+.arithlab .arithlab-numberline { margin: 24px 0 0; }
+.arithlab .arithlab-numberline figcaption { color: var(--arithlab-muted); font-size: 13px; line-height: 1.6; }
+.arithlab .arithlab-line { position: relative; height: 7px; margin: 24px 9px 0; border-radius: 4px; background: #abbfa0; }
+.arithlab .arithlab-line::before, .arithlab .arithlab-line::after { content: ""; position: absolute; top: -5px; height: 17px; width: 2px; background: #48613c; }
+.arithlab .arithlab-line::before { left: 0; }.arithlab .arithlab-line::after { right: 0; }
+.arithlab .arithlab-line-zero { position: absolute; top: -4px; height: 15px; width: 2px; background: #48613c; }
+.arithlab .arithlab-line-marker { position: absolute; z-index: 1; top: 50%; width: 18px; height: 18px; border: 3px solid #fffefa; border-radius: 50%; background: #183e32; box-shadow: 0 0 0 2px #183e32; transform: translate(-50%, -50%); }
+.arithlab .arithlab-line-labels { display: flex; justify-content: space-between; position: relative; margin: 14px 4px 0; color: #46613e; font: 13px/1.3 ui-monospace, monospace; }
+.arithlab .arithlab-zero-label { position: absolute; left: 50.196%; transform: translateX(-50%); }
+.arithlab .arithlab-numberline p { color: #405e3d; font-size: 14px; }
+.arithlab .arithlab-memory { padding: 17px 19px; background: #eaf3dd; border-radius: 8px; line-height: 1.7; }
+.arithlab .arithlab-case-section { margin-top: 32px; border-top: 2px solid #77976c; padding-top: 25px; }
+.arithlab .arithlab-case-section > h4 { margin: 0 0 15px; color: #183e32; font-size: 23px; line-height: 1.3; }
+.arithlab .arithlab-cases { margin: 18px 0; }
+.arithlab .arithlab-cases button { font-size: 16px; }
+.arithlab .arithlab-binary-sum { display: flex; flex-wrap: wrap; align-items: baseline; gap: 9px; padding: 17px; border: 1px solid var(--arithlab-border); border-radius: 8px; background: #f5f5ed; font: 700 clamp(15px, 2.5vw, 20px)/1.8 ui-monospace, monospace; }
+.arithlab .arithlab-binary-sum > span { white-space: nowrap; }
+.arithlab .arithlab-outside-bit { display: inline-block; margin-right: 6px; padding: 0 4px; background: #fff0bf; border-bottom: 2px dashed #987634; }
+.arithlab .arithlab-stored-bits { border-bottom: 2px solid #315942; }
+.arithlab .arithlab-case-comparison { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin-top: 24px; }
+.arithlab .arithlab-case-comparison h5 { margin: 0; font-size: 16px; line-height: 1.45; }
+.arithlab .arithlab-case-comparison p { font-size: 15px; }
+.arithlab .arithlab-case-comparison p.arithlab-equation { font-size: clamp(17px, 2vw, 22px); }
+.arithlab .arithlab-inspect-button { margin-top: 6px; }
+@media (max-width: 600px) {
+  .arithlab .arithlab-interpretations, .arithlab .arithlab-case-comparison { grid-template-columns: 1fr; }
+  .arithlab .arithlab-interpretation, .arithlab .arithlab-interpretation + .arithlab-interpretation { border-left: 0; padding: 20px 0; }
+  .arithlab .arithlab-interpretation + .arithlab-interpretation { border-top: 1px solid var(--arithlab-border); }
+  .arithlab .arithlab-interpretation h4, .arithlab .arithlab-weight-sum { min-height: 0; }
+  .arithlab .arithlab-case-comparison { gap: 17px; }
+  .arithlab .arithlab-case-comparison > article + article { border-top: 1px solid var(--arithlab-border); padding-top: 17px; }
+  .arithlab .arithlab-controls button { flex: 1 1 125px; }
+}
+@media (max-width: 420px) {
+  .arithlab .arithlab-inputs { padding: 12px; gap: 10px; }
+  .arithlab .arithlab-inputs label { flex-basis: 100%; }
+  .arithlab .arithlab-operator { display: none; }
+  .arithlab .arithlab-explanation { padding: 15px; }
+  .arithlab .arithlab-binary-sum { padding: 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .arithlab *, .arithlab *::before, .arithlab *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
+@media print {
+  .arithlab { break-inside: auto; background: white; padding: 16px; }
+  .arithlab .arithlab-controls, .arithlab .arithlab-inspect-button, .arithlab .arithlab-presets { display: none; }
+  .arithlab .arithlab-table-scroll, .arithlab .arithlab-bits-scroll { overflow: visible; }
+  .arithlab .arithlab-explanation, .arithlab .arithlab-interpretation, .arithlab .arithlab-case-comparison > article { break-inside: avoid; }
+}

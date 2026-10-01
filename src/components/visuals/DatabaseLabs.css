@@ -1,0 +1,100 @@
+.dblab {
+  --dblab-ink: #183e32;
+  --dblab-line: #c8d4c5;
+  --dblab-muted: #4f6257;
+  min-width: 0;
+  padding: clamp(18px, 3vw, 30px);
+  margin: 28px 0;
+  border: 1px solid var(--dblab-line);
+  border-radius: 14px;
+  background: #fffefa;
+  color: #12221d;
+  font: 16px/1.7 Arial, Helvetica, sans-serif;
+}
+.dblab *, .dblab *::before, .dblab *::after { box-sizing: border-box; }
+.dblab .dblab-header h3 { margin: 8px 0 16px; color: var(--dblab-ink); font: 400 clamp(25px, 3vw, 32px)/1.18 Georgia, serif; letter-spacing: -.02em; }
+.dblab .dblab-header p { max-width: 70ch; margin: 0 0 22px; font-size: 16px; line-height: 1.75; }
+.dblab .dblab-kicker { display: block; color: #466c38; font: 800 12px/1.5 Arial, sans-serif; letter-spacing: .08em; text-transform: uppercase; }
+.dblab p { margin: 12px 0; overflow-wrap: anywhere; }
+.dblab code { font: .9em/1.65 ui-monospace, monospace; }
+.dblab button, .dblab select { font: inherit; color: var(--dblab-ink); }
+.dblab button { min-height: 44px; padding: 9px 13px; border: 1px solid #81977e; border-radius: 7px; background: #fffefa; font-size: 14px; font-weight: 700; line-height: 1.45; cursor: pointer; }
+.dblab button:hover:not(:disabled) { background: #e8f1dc; border-color: #264d37; }
+.dblab button:disabled, .dblab select:disabled { cursor: not-allowed; opacity: .65; }
+.dblab button[aria-pressed="true"], .dblab button.dblab-primary { background: #183e32; color: #fffefa; border-color: #183e32; }
+.dblab button[aria-pressed="true"]:hover, .dblab button.dblab-primary:hover:not(:disabled) { background: #285840; }
+.dblab :is(button, select, [tabindex="0"]):focus-visible { outline: 3px solid #2865b7; outline-offset: 4px; }
+.dblab .dblab-prediction { padding: 18px 20px; background: #f5f0df; border-left: 4px solid #ac8b35; border-radius: 0 8px 8px 0; }
+.dblab .dblab-key-guide { margin: 22px 0; padding-bottom: 10px; border-bottom: 1px solid var(--dblab-line); }
+.dblab .dblab-key-guide p { font-size: 14px; }
+.dblab .dblab-relation-tables { display: grid; gap: 18px; grid-template-columns: minmax(0, 1fr); }
+.dblab .dblab-table-scroll { max-width: 100%; margin: 16px 0; overflow-x: auto; border: 1px solid var(--dblab-line); border-radius: 8px; background: #fffefa; }
+.dblab .dblab-relation-tables .dblab-table-scroll { margin: 0; }
+.dblab .dblab-table { width: 100%; border-collapse: collapse; font-size: 14px; line-height: 1.6; font-variant-numeric: tabular-nums; }
+.dblab .dblab-table caption { padding: 13px 16px; text-align: left; background: #edf2e5; font-weight: 700; color: #264934; }
+.dblab .dblab-table th { padding: 12px 14px; text-align: left; background: #f4f7ed; font-size: 13px; color: #294934; white-space: nowrap; }
+.dblab .dblab-table td { padding: 11px 14px; border-top: 1px solid #dbe1d3; vertical-align: middle; }
+.dblab .dblab-table small { display: block; font: 400 11px/1.55 Arial, sans-serif; color: #52664c; }
+.dblab .dblab-table .dblab-selected-row { background: #fff0bd; }
+.dblab .dblab-table .dblab-match-row { background: #e5f1d7; }
+.dblab .dblab-table .dblab-match-row td:first-child { box-shadow: inset 4px 0 #608548; }
+.dblab .dblab-table .dblab-excluded-row { background: #f1f0e9; color: #5c635b; }
+.dblab .dblab-table .dblab-excluded-row td:first-child { box-shadow: inset 4px 0 #a8a99c; }
+.dblab .dblab-table th.dblab-selected-column { background: #d5eabb; text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 2px; }
+.dblab .dblab-key-button { min-width: 64px; padding: 8px 12px; font-family: ui-monospace, monospace; }
+.dblab .dblab-row-verdict { font-size: 12px; font-weight: 700; }
+.dblab .dblab-table small.dblab-row-verdict { font-size: 11px; font-weight: 700; }
+.dblab .dblab-note { color: var(--dblab-muted); font-size: 13px; line-height: 1.65; }
+.dblab .dblab-explanation { margin-top: 22px; padding: 20px; border-left: 4px solid #719654; border-radius: 0 8px 8px 0; background: #edf5e4; }
+.dblab .dblab-explanation h4 { margin: 0 0 13px; color: #183e32; font-size: 21px; line-height: 1.4; }
+.dblab .dblab-key-connection { display: flex; flex-wrap: wrap; gap: 15px; align-items: center; color: #31513a; font: 13px/1.7 ui-monospace, monospace; }
+.dblab .dblab-key-connection strong { font-size: 25px; color: #183e32; }
+.dblab .dblab-key-connection .dblab-equals { font-size: 29px; }
+.dblab .dblab-join-section { margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--dblab-line); }
+.dblab .dblab-join-section > h4 { margin: 0 0 14px; font-size: 22px; color: #183e32; line-height: 1.35; }
+.dblab .dblab-choice-field { min-width: 0; margin: 24px 0 18px; padding: 0; border: 0; }
+.dblab .dblab-choice-field legend { max-width: 100%; padding: 0; margin-bottom: 12px; font-size: 14px; font-weight: 700; }
+.dblab .dblab-choice-buttons { display: flex; flex-wrap: wrap; gap: 10px; }
+.dblab .dblab-choice-buttons small { display: block; margin-top: 4px; font-size: 11px; font-weight: 400; }
+.dblab .dblab-empty { margin: 0; padding: 18px 20px; color: #53634c; font-size: 15px; background: #f4f5ed; }
+.dblab .dblab-null { font: italic 13px ui-monospace, monospace; color: #645734; }
+.dblab .dblab-memory { padding: 17px 19px; background: #eaf3dd; border-radius: 8px; line-height: 1.7; }
+.dblab .dblab-reset { margin-top: 16px; }
+.dblab .dblab-query-controls { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 205px), 1fr)); gap: 14px; margin: 24px 0 18px; }
+.dblab .dblab-query-controls label { display: flex; flex-direction: column; gap: 7px; min-width: 0; font-size: 13px; font-weight: 700; }
+.dblab select { width: 100%; min-height: 44px; padding: 9px 11px; border: 1px solid #879f7c; border-radius: 6px; background: #fffefa; font-size: 14px; }
+.dblab .dblab-sql-code { max-width: 100%; margin: 20px 0 12px; padding: 18px; overflow-x: auto; border-radius: 8px; background: #173a2e; color: #f1f8e9; }
+.dblab .dblab-sql-code code { display: block; font: 14px/1.9 ui-monospace, monospace; white-space: pre; }
+.dblab .dblab-sql-code span { display: block; min-width: max-content; padding: 2px 9px; }
+.dblab .dblab-sql-code .dblab-active-code { background: #c9f27f; color: #143428; box-shadow: inset 3px 0 #fffefa; font-weight: 700; }
+.dblab .dblab-prediction-input { display: grid; gap: 8px; padding: 18px 20px; background: #f5f0df; border-left: 4px solid #ac8b35; border-radius: 0 8px 8px 0; font-size: 14px; }
+.dblab .dblab-prediction-input select { max-width: 270px; }
+.dblab .dblab-steps { list-style: none; padding: 0; margin: 24px 0 18px; display: flex; gap: 8px; flex-wrap: wrap; }
+.dblab .dblab-steps li { display: flex; align-items: center; gap: 7px; padding: 9px 10px; border-bottom: 2px solid #d3dccc; font-size: 12px; color: #4e6152; }
+.dblab .dblab-steps li > span { font: 700 12px ui-monospace, monospace; }
+.dblab .dblab-steps li.dblab-current-step { background: #e1edcd; border-bottom-color: #31553b; color: #183e32; font-weight: 700; }
+.dblab .dblab-step-controls { display: flex; flex-wrap: wrap; gap: 9px; margin: 18px 0; }
+.dblab .dblab-sql-result { margin-top: 24px; }
+@media (min-width: 1200px) {
+  .dblab .dblab-relation-tables { grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); }
+  .dblab .dblab-relation-tables .dblab-table th, .dblab .dblab-relation-tables .dblab-table td { padding-inline: 10px; }
+}
+@media (max-width: 600px) {
+  .dblab .dblab-step-controls button { flex: 1 1 135px; }
+  .dblab .dblab-choice-buttons { display: grid; grid-template-columns: minmax(0, 1fr); }
+  .dblab .dblab-table th, .dblab .dblab-table td { padding: 10px 12px; }
+  .dblab .dblab-explanation { padding: 16px; }
+  .dblab .dblab-key-connection { gap: 10px; font-size: 11px; }
+  .dblab .dblab-key-connection strong { font-size: 22px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .dblab *, .dblab *::before, .dblab *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
+@media print {
+  .dblab { background: white; padding: 16px; break-inside: auto; }
+  .dblab .dblab-table-scroll { overflow: visible; }
+  .dblab .dblab-relation-tables { grid-template-columns: 1fr; }
+  .dblab .dblab-step-controls, .dblab .dblab-reset, .dblab .dblab-presets { display: none; }
+  .dblab .dblab-explanation, .dblab .dblab-table { break-inside: avoid; }
+  .dblab .dblab-sql-code { color: black; background: #f1f1e9; white-space: pre-wrap; }
+}

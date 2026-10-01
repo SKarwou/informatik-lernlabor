@@ -1,0 +1,102 @@
+.proglab { margin-block: 30px; padding: clamp(18px, 3vw, 28px); color: #173c30; background: #f8faf3; border: 1px solid #bacbb7; border-radius: 15px; min-width: 0; font-family: Arial, Helvetica, sans-serif; }
+.proglab .proglab-kicker { display: block; color: #47654b; font: 800 11px/1.5 Arial, sans-serif; letter-spacing: .09em; }
+.proglab .proglab-header h3 { margin: 10px 0 15px; font: 400 clamp(26px, 4vw, 33px)/1.2 Georgia, serif; letter-spacing: -.025em; }
+.proglab p, .proglab li { font: 15px/1.7 Arial, sans-serif; overflow-wrap: anywhere; }
+.proglab h4 { margin: 0 0 12px; font: 700 18px/1.4 Arial, sans-serif; }
+.proglab code { font: .94em/1.6 ui-monospace, SFMono-Regular, Consolas, monospace; overflow-wrap: anywhere; }
+.proglab .proglab-small { font-size: 12px; line-height: 1.7; color: #4c6456; }
+.proglab-prediction { padding: 15px 18px; margin: 20px 0; background: #fff3d5; border-left: 4px solid #b59549; font-size: 14px; line-height: 1.7; border-radius: 0 8px 8px 0; }
+.proglab-controls { display: flex; flex-wrap: wrap; gap: 9px; margin: 20px 0; }
+.proglab .proglab-button { min-height: 44px; border: 1px solid #738b72; border-radius: 8px; padding: 10px 13px; background: #fffefa; color: #173c30; font-size: 13px; font-weight: 700; line-height: 1.5; cursor: pointer; }
+.proglab .proglab-button.proglab-primary, .proglab .proglab-button[aria-pressed="true"] { background: #183e32; color: #fffefa; border-color: #183e32; }
+.proglab .proglab-button:hover:not(:disabled) { box-shadow: 0 0 0 2px #b5c99c; }
+.proglab .proglab-button:disabled { opacity: .5; cursor: not-allowed; }
+.proglab button:focus-visible, .proglab summary:focus-visible, .proglab input:focus-visible { outline: 3px solid #306ec5; outline-offset: 4px; }
+.proglab-input, .proglab-program, .proglab-memory { background: #fffefa; border: 1px solid #d0dcce; border-radius: 11px; padding: 20px; margin: 18px 0; min-width: 0; }
+.proglab-products { display: grid; grid-template-columns: repeat(auto-fit, minmax(125px, 1fr)); gap: 10px; }
+.proglab-product { display: flex; flex-direction: column; gap: 10px; border: 2px solid #d4decd; border-radius: 9px; padding: 13px; background: #f6f8f0; font-size: 14px; }
+.proglab-product-current { border-color: #487638; background: #e9f4d7; }
+.proglab-product .proglab-position { font: 12px ui-monospace, monospace; color: #4a6451; }
+.proglab-product > strong { font-size: 17px; }
+.proglab-product small { display: block; margin-top: 6px; }
+.proglab-pointer { font-size: 12px; font-weight: 700; min-height: 1.5em; margin-top: auto; }
+.proglab .proglab-boundary { border-left: 3px solid #9b753e; background: #fff5e1; padding: 12px; font-size: 13px; }
+.proglab-empty { margin: 0; padding: 18px; border: 1px dashed #9db291; border-radius: 8px; }
+.proglab-trace-grid { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr); gap: 12px; }
+.proglab-trace-grid > div { margin-block: 0; }
+.proglab-code { list-style: none; padding: 0; margin: 20px -10px; }
+.proglab-code > li { display: flex; align-items: flex-start; gap: 10px; padding: 11px 8px; border: 1px solid transparent; border-left-width: 3px; border-radius: 5px; font-size: 13px; }
+.proglab-code > li > span:first-child { width: 13px; flex: 0 0 13px; color: #5a6f60; font: 11px/1.9 ui-monospace, monospace; }
+.proglab-code > li > code { white-space: pre-wrap; overflow-wrap: anywhere; line-height: 1.8; font-size: 13px; }
+.proglab-code > li.proglab-active-line { border-color: #719550; background: #ddefc7; }
+.proglab-memory dl { margin: 0; display: grid; gap: 10px; }
+.proglab-memory dl > div { padding: 15px; background: #eef4e4; border: 1px solid #d3dfc8; border-radius: 8px; }
+.proglab-memory dt { font-size: 12px; line-height: 1.5; font-weight: 700; }
+.proglab-memory dd { margin: 8px 0 0; font-size: 13px; line-height: 1.6; }
+.proglab-memory dd > strong { display: block; font: 38px/1.2 Georgia, serif; }
+.proglab-memory dd > span { display: block; margin-top: 5px; }
+.proglab-step { background: #eaf2df; border-left: 4px solid #759450; border-radius: 0 10px 10px 0; padding: 18px 20px; margin: 20px 0; }
+.proglab-step > strong { font-size: 14px; }
+.proglab-step p { margin: 10px 0; }
+.proglab-step > span { font-size: 12px; line-height: 1.6; }
+.proglab .proglab-calculation { font: 19px/1.6 ui-monospace, monospace; padding: 12px; border: 1px solid #bed4a7; border-radius: 7px; background: #fffefa; }
+.proglab-receipt { padding: 22px; border: 2px solid #95b56e; background: #fffefa; border-radius: 10px; }
+.proglab-receipt > span { display: block; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; }
+.proglab-receipt > strong { display: block; margin-top: 12px; font: 28px/1.3 Georgia, serif; }
+.proglab-example { border-block: 1px solid #bdd0b2; padding-block: 16px; margin-block: 24px; }
+.proglab-example summary { font-size: 14px; line-height: 1.6; font-weight: 700; cursor: pointer; }
+.proglab-example ol { padding-left: 22px; margin-bottom: 0; }
+.proglab-example li { padding-left: 4px; margin-block: 9px; font-size: 14px; }
+.proglab .proglab-remember { background: #173c30; color: #fffefa; padding: 18px 20px; border-left: 4px solid #b4d88a; border-radius: 0 9px 9px 0; }
+.proglab-blueprint { border: 2px solid #91aa7c; border-radius: 12px; padding: 23px; background: #eef5e5; margin-top: 24px; }
+.proglab-blueprint > h4 { font: 700 25px/1.4 ui-monospace, monospace; margin: 10px 0 18px; }
+.proglab-blueprint > div { padding-block: 14px; border-top: 1px solid #b6c8a7; }
+.proglab-blueprint > div > strong { font-size: 12px; text-transform: uppercase; letter-spacing: .08em; }
+.proglab-blueprint p { margin-block: 8px 0; }
+.proglab-blueprint ul { padding-left: 20px; margin-bottom: 0; }
+.proglab-blueprint li { margin-top: 6px; }
+.proglab-create-arrow { display: flex; justify-content: center; align-items: center; gap: 24px; margin: 18px 0; text-align: center; }
+.proglab-create-arrow > span { font: 30px Georgia, serif; color: #55713e; }
+.proglab-create-arrow p { margin: 0; font-size: 12px; line-height: 1.9; }
+.proglab-objects { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.proglab-object { border: 2px solid #bdceb0; border-radius: 12px; padding: 18px; background: #fffefa; min-width: 0; }
+.proglab-object-active { border-color: #4d773b; box-shadow: inset 0 0 0 2px #d5e8bf; }
+.proglab-reference { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; font-size: 11px; padding-bottom: 15px; margin-bottom: 16px; border-bottom: 1px solid #d2decb; }
+.proglab-reference > code { display: grid; place-items: center; padding: 6px 10px; border: 1px solid #97ad86; border-radius: 5px; background: #eaf1df; font-size: 17px; font-weight: 700; }
+.proglab-object h4 { font-size: 16px; }
+.proglab-object > span { font-size: 12px; }
+.proglab-count { display: flex; align-items: center; gap: 15px; margin-top: 10px; }
+.proglab-count code { font-size: 16px; }
+.proglab-count strong { font: 46px/1.3 Georgia, serif; overflow-wrap: anywhere; min-width: 0; }
+.proglab-object-buttons { display: grid; gap: 8px; }
+.proglab-object-buttons button { width: 100%; }
+.proglab-alias-section { padding: 22px; background: #edf2f7; border: 1px solid #bfccd6; border-radius: 12px; margin: 24px 0; }
+.proglab-toggle { display: flex; align-items: center; gap: 13px; min-height: 48px; font-size: 14px; line-height: 1.7; cursor: pointer; }
+.proglab-toggle input { width: 22px; height: 22px; accent-color: #183e32; flex-shrink: 0; }
+.proglab-alias { margin-top: 18px; padding-top: 5px; border-top: 1px solid #bacad4; }
+.proglab-alias-route { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; padding: 16px; background: #fffefa; border: 1px solid #bed0b4; border-radius: 8px; font-size: 14px; }
+.proglab-alias-route code { padding: 7px 12px; background: #e2efd5; border-radius: 4px; font-weight: 700; }
+.proglab-sr-only { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+@media (max-width: 760px) {
+  .proglab-trace-grid { grid-template-columns: 1fr; }
+  .proglab-memory dl { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .proglab-memory dl > div:last-child { grid-column: 1 / -1; }
+}
+@media (max-width: 520px) {
+  .proglab { padding: 17px; }
+  .proglab-input, .proglab-program, .proglab-memory, .proglab-blueprint, .proglab-alias-section { padding: 16px; }
+  .proglab-objects { grid-template-columns: 1fr; }
+  .proglab-controls > button { flex: 1 1 145px; }
+  .proglab-memory dl { grid-template-columns: 1fr; }
+  .proglab-count strong { font-size: 40px; }
+  .proglab-create-arrow { gap: 10px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .proglab *, .proglab *::before, .proglab *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
+@media print {
+  .proglab { background: white; break-inside: auto; }
+  .proglab-controls, .proglab-object-buttons, .proglab-toggle { display: none; }
+  .proglab-trace-grid { grid-template-columns: 1fr; }
+  .proglab .proglab-remember { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+}

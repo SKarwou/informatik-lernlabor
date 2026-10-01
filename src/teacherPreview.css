@@ -1,0 +1,3 @@
+.teacherPreviewBanner{background:#fff2cb;color:#49391b;border-bottom:2px solid #d6b566;padding:12px 24px;display:flex;gap:8px 22px;flex-wrap:wrap;font:14px/1.5 system-ui,sans-serif}
+.teacherPreviewBanner strong{white-space:normal}
+@media print{.teacherPreviewBanner{display:none}}

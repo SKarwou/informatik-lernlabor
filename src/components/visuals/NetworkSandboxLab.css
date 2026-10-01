@@ -1,0 +1,111 @@
+.netsandbox { margin-block: 32px; min-width: 0; padding: clamp(18px,3vw,30px); border: 1px solid #bfceb7; border-radius: 14px; background: #fffefa; color: #173c30; font: 16px/1.7 Arial,Helvetica,sans-serif; }
+.netsandbox *, .netsandbox *::before, .netsandbox *::after { box-sizing: border-box; }
+.netsandbox .netsandbox-kicker { display: block; color: #4d7142; font: 800 11px/1.6 Arial,sans-serif; text-transform: uppercase; letter-spacing: .09em; }
+.netsandbox h3 { margin: 10px 0 18px; font: 400 clamp(27px,3.7vw,36px)/1.18 Georgia,serif; color: #183e32; letter-spacing: -.025em; }
+.netsandbox h4 { margin: 0 0 12px; font: 700 20px/1.4 Arial,sans-serif; }
+.netsandbox p, .netsandbox li { font: 15px/1.75 Arial,sans-serif; overflow-wrap: anywhere; }
+.netsandbox p { margin: 12px 0; }
+.netsandbox .netsandbox-intro { font-size: 16px; max-width: 76ch; }
+.netsandbox code { font: .94em/1.6 ui-monospace,monospace; }
+.netsandbox button { min-height: 44px; max-width: 100%; padding: 10px 14px; border: 1px solid #7d9578; border-radius: 8px; background: #fffefa; color: #183e32; font: 700 13px/1.5 Arial,sans-serif; cursor: pointer; overflow-wrap: anywhere; }
+.netsandbox button:hover:not(:disabled) { background: #e8f2dc; border-color: #3b6438; }
+.netsandbox button:disabled { opacity: .55; cursor: not-allowed; }
+.netsandbox button[aria-pressed="true"] { border-color: #3d6434; background: #d8efba; box-shadow: inset 0 0 0 1px #3d6434; }
+.netsandbox button:focus-visible, .netsandbox summary:focus-visible, .netsandbox [tabindex="0"]:focus-visible { outline: 3px solid #246bb6; outline-offset: 4px; }
+.netsandbox .netsandbox-button-row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-block: 14px; }
+.netsandbox .netsandbox-button-row small { display: block; margin-top: 4px; font-weight: 400; font-family: ui-monospace,monospace; }
+.netsandbox .netsandbox-note { color: #52684b; font-size: 12px; line-height: 1.75; }
+.netsandbox .netsandbox-start { margin-top: 25px; padding: 20px 23px; background: #f0f5e7; border: 1px solid #cfddc1; border-radius: 10px; }
+.netsandbox .netsandbox-start ol { margin: 12px 0 0; padding-left: 23px; }
+.netsandbox .netsandbox-start li { margin-top: 9px; padding-left: 5px; font-size: 14px; }
+.netsandbox fieldset { min-width: 0; border: 0; padding: 0; margin: 28px 0 20px; }
+.netsandbox legend { padding: 0; max-width: 100%; font: 700 18px/1.5 Arial,sans-serif; }
+.netsandbox .netsandbox-diagram-scroll { width: 100%; max-width: 100%; overflow-x: auto; border: 1px solid #c9d8bc; border-radius: 11px; background: #fafbf5; }
+.netsandbox .netsandbox-diagram { display: block; width: 100%; min-width: 0; height: auto; }
+.netsandbox .netsandbox-lan { fill: #edf5e1; stroke: #bbcfa6; stroke-width: 1.5; }
+.netsandbox .netsandbox-server-net { fill: #edf2f7; stroke: #becdd7; stroke-width: 1.5; }
+.netsandbox .netsandbox-net-title { fill: #264b32; font: 700 17px Arial,sans-serif; }
+.netsandbox .netsandbox-net-subtitle { fill: #53684b; font: 12px Arial,sans-serif; }
+.netsandbox .netsandbox-wire { stroke: #779a64; stroke-width: 5; stroke-linecap: round; }
+.netsandbox .netsandbox-wire-off { stroke: #996146; stroke-width: 3; stroke-dasharray: 8 7; }
+.netsandbox .netsandbox-wire-active { stroke: #244e34; stroke-width: 8; }
+.netsandbox .netsandbox-wire-blocked { stroke: #ae4932; stroke-width: 6; }
+.netsandbox .netsandbox-wire-badge { fill: #fffefa; stroke: #678954; stroke-width: 1.5; }
+.netsandbox .netsandbox-wire-badge-off { fill: #fff0db; stroke: #996146; }
+.netsandbox .netsandbox-wire-number { fill: #3f5934; font: 700 14px Arial,sans-serif; }
+.netsandbox .netsandbox-broken-label { fill: #884a2c; stroke: #fafbf5; stroke-width: 5px; paint-order: stroke; font: 700 12px Arial,sans-serif; }
+.netsandbox .netsandbox-device { cursor: pointer; }
+.netsandbox .netsandbox-device-box { fill: #fffefa; stroke: #78916b; stroke-width: 2; }
+.netsandbox .netsandbox-device-selected { fill: #e3f3ce; stroke: #426d38; stroke-width: 3; }
+.netsandbox .netsandbox-device-current { stroke: #233e2f; stroke-width: 4; }
+.netsandbox .netsandbox-device:hover .netsandbox-device-box { fill: #d8ecbf; }
+.netsandbox .netsandbox-device:focus-visible { outline: none; }
+.netsandbox .netsandbox-device:focus-visible .netsandbox-device-box { stroke: #246bb6; stroke-width: 5; }
+.netsandbox .netsandbox-device-symbol { fill: none; stroke: #365d3b; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; pointer-events: none; }
+.netsandbox .netsandbox-device-label { fill: #183e32; font: 700 18px Arial,sans-serif; }
+.netsandbox .netsandbox-address { fill: #344f39; font: 12px ui-monospace,monospace; }
+.netsandbox .netsandbox-map-note { fill: #52684c; font: 12px Arial,sans-serif; }
+.netsandbox .netsandbox-packet { transition: transform 900ms linear; pointer-events: none; }
+.netsandbox .netsandbox-packet circle { fill: #295a38; stroke: #fffefa; stroke-width: 2; }
+.netsandbox .netsandbox-packet text { fill: #fffefa; font: 700 11px Arial,sans-serif; }
+.netsandbox .netsandbox-packet-reply circle { fill: #285f91; }
+.netsandbox .netsandbox-device-buttons { display: flex; flex-wrap: wrap; gap: 8px; margin-block: 20px; }
+.netsandbox .netsandbox-explain { padding: 21px 23px; border-left: 4px solid #6f964c; background: #eff6e6; border-radius: 0 10px 10px 0; }
+.netsandbox .netsandbox-explain p { font-size: 14px; }
+.netsandbox .netsandbox-remember { padding-top: 12px; border-top: 1px solid #c9d9b8; }
+.netsandbox .netsandbox-details { padding: 16px 18px; margin-block: 19px; border: 1px solid #cbd7c1; border-radius: 9px; background: #f7f8f0; }
+.netsandbox .netsandbox-details summary { cursor: pointer; font: 700 14px/1.6 Arial,sans-serif; }
+.netsandbox .netsandbox-details p, .netsandbox .netsandbox-details li { font-size: 14px; }
+.netsandbox .netsandbox-details ol, .netsandbox .netsandbox-details ul { padding-left: 24px; }
+.netsandbox .netsandbox-details li { margin-block: 10px; padding-left: 4px; }
+.netsandbox .netsandbox-table-scroll { overflow-x: auto; max-width: 100%; border: 1px solid #d0dbc7; border-radius: 7px; margin-top: 18px; }
+.netsandbox table { width: 100%; border-collapse: collapse; font: 13px/1.6 Arial,sans-serif; background: #fffefa; }
+.netsandbox caption { padding: 12px; text-align: left; font-weight: 700; background: #eaf2df; }
+.netsandbox th, .netsandbox td { text-align: left; padding: 10px 13px; border-top: 1px solid #d5dfcb; vertical-align: top; }
+.netsandbox th { background: #f0f5e7; }
+.netsandbox td:nth-child(2) { white-space: nowrap; font-family: ui-monospace,monospace; }
+.netsandbox .netsandbox-cable-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px; margin-block: 18px; }
+.netsandbox .netsandbox-cable-grid button { display: flex; gap: 12px; align-items: center; padding: 15px; text-align: left; background: #fbf3e7; }
+.netsandbox .netsandbox-cable-grid button[aria-pressed="true"] { background: #edf5e3; box-shadow: none; }
+.netsandbox .netsandbox-cable-grid strong { display: block; font-size: 13px; }
+.netsandbox .netsandbox-cable-grid small { display: block; margin-top: 6px; font: 400 11px/1.6 Arial,sans-serif; }
+.netsandbox .netsandbox-cable-number { display: grid; place-items: center; flex: 0 0 28px; height: 28px; border-radius: 50%; background: #fffefa; border: 1px solid #a2b391; }
+.netsandbox .netsandbox-notice { margin-block: 20px; padding: 16px 19px; background: #f8f0dc; border-left: 4px solid #ac8b35; border-radius: 0 8px 8px 0; color: #615026; font-size: 13px; }
+.netsandbox .netsandbox-send { padding-top: 20px; border-top: 1px solid #c4d4b7; margin-top: 27px; }
+.netsandbox button.netsandbox-primary { color: #fffefa; background: #183e32; border-color: #183e32; }
+.netsandbox button.netsandbox-primary:hover { background: #2b593e; }
+.netsandbox .netsandbox-step { margin-top: 22px; padding: 24px; border: 1px solid #abc694; border-radius: 10px; background: #eaf4dc; }
+.netsandbox .netsandbox-step-failed { background: #faf0e4; border-color: #ba8e62; }
+.netsandbox .netsandbox-step-phase { margin: 0 0 12px; color: #506c40; font-size: 12px; font-weight: 700; }
+.netsandbox .netsandbox-step h4 { font-size: 22px; }
+.netsandbox .netsandbox-packet-addresses { display: flex; flex-wrap: wrap; align-items: center; gap: 17px; padding: 17px; margin-block: 20px; border: 1px solid #c2d5ae; border-radius: 8px; background: #fffefa; }
+.netsandbox .netsandbox-packet-addresses small { display: block; font: 12px/1.7 Arial,sans-serif; color: #557146; }
+.netsandbox .netsandbox-packet-addresses strong { display: block; font: 700 15px/1.8 ui-monospace,monospace; }
+.netsandbox .netsandbox-history li { margin-block: 12px; }
+.netsandbox .netsandbox-history span { display: block; font-size: 12px; color: #547045; margin-top: 5px; }
+.netsandbox .netsandbox-history li[aria-current="step"] { padding: 10px; background: #e4efd6; border-radius: 5px; }
+.netsandbox .netsandbox-challenges { margin-top: 26px; padding-top: 24px; border-top: 1px solid #c4d4b7; }
+.netsandbox .netsandbox-challenges ol { margin-bottom: 0; padding-left: 23px; }
+.netsandbox .netsandbox-challenges li { margin-block: 14px; padding-left: 5px; }
+.netsandbox a { text-decoration: underline; text-underline-offset: 3px; }
+@media (max-width: 620px) {
+  .netsandbox .netsandbox-diagram { min-width: 700px; }
+  .netsandbox { padding: 18px 14px; }
+  .netsandbox .netsandbox-cable-grid { grid-template-columns: 1fr; }
+  .netsandbox .netsandbox-button-row button { flex: 1 1 150px; }
+  .netsandbox .netsandbox-step, .netsandbox .netsandbox-explain, .netsandbox .netsandbox-start { padding: 18px; }
+  .netsandbox .netsandbox-packet-addresses { padding: 12px; gap: 12px; }
+  .netsandbox .netsandbox-packet-addresses strong { font-size: 13px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .netsandbox *, .netsandbox *::before, .netsandbox *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
+@media print {
+  .netsandbox { padding: 14px; border-radius: 0; background: white; }
+  .netsandbox .netsandbox-screen { display: none; }
+  .netsandbox .netsandbox-diagram-scroll { overflow: visible; break-inside: avoid; }
+  .netsandbox .netsandbox-diagram { min-width: 0; width: 100%; }
+  .netsandbox .netsandbox-packet { transition: none; }
+  .netsandbox .netsandbox-step, .netsandbox .netsandbox-explain { break-inside: avoid; }
+  .netsandbox .netsandbox-table-scroll { overflow: visible; }
+}
