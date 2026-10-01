@@ -1,49 +1,42 @@
 import Link from "next/link";
 import { areas, topics } from "./topics";
+import "./Home.css";
 
 export default function Home() {
   return (
-    <main>
+    <main className="homePage" id="top">
       <nav className="nav shell" aria-label="Hauptnavigation">
         <Link className="brand" href="/" aria-label="Informatik-Lernlabor Startseite">
           <span className="brandMark">&lt;/&gt;</span>
           <span>Informatik-Lernlabor</span>
         </Link>
-        <div className="navLinks"><Link href="/werkzeuge">Erste Schritte</Link><Link href="/projekte">Projektphasen</Link><Link href="/bildungsplan"> Lehrkraft</Link></div>
+        <div className="navLinks"><a href="#themen">Die Themen ↓</a><Link href="/module/zahlensysteme">Zum ersten Kapitel →</Link></div>
       </nav>
 
-      <header className="hero shell">
-        <div className="eyebrow">BILDUNGSPLAN BADEN-WÜRTTEMBERG · KLASSEN 11/12</div>
-        <h1>Wahlfach Informatik.<br /><em>Ein Lernlabor.</em></h1>
-        <p className="heroCopy">Informatik in einem Lernpfad – mit ausführlichen Erklärungen, Schaubildern, Rechen- und Heftaufgaben, Scratch, BlueJ und direktem Feedback.</p>
-        <div className="heroActions">
-          <a className="primaryButton" href="#themen">Themen entdecken <span>↓</span></a>
-          <Link className="textButton" href="/module/zahlensysteme">Ohne Vorwissen starten →</Link>
+      <header className="hero homeHero shell">
+        <div className="homeHeroText">
+          <div className="eyebrow">ENTDECKEN · VERSTEHEN · AUSPROBIEREN</div>
+          <h1>Wahlfach<br />Informatik.<br /><em>Ein Lernlabor.</em></h1>
+          <p className="heroCopy">Was passiert eigentlich im Computer? Finde es heraus – mit verständlichen Beispielen, Experimenten zum Anklicken und Aufgaben zum Selberdenken.</p>
+          <div className="heroActions">
+            <a className="primaryButton" href="#themen">Themen entdecken <span aria-hidden="true">↓</span></a>
+            <Link className="textButton" href="/module/zahlensysteme">Mit dem ersten Kapitel starten →</Link>
+          </div>
         </div>
-        <div className="stats" aria-label="Umfang des Lernlabors">
-          <div><strong>2</strong><span>Schuljahre</span></div>
-          <div><strong>12</strong><span>Lernmodule</span></div>
-          <div><strong>72</strong><span>Doppelstunden</span></div>
-        </div>
+        <figure className="homeCartoon">
+          <img src={`${import.meta.env.BASE_URL}illustrations/startseite-cartoon-2026-10-01.png`} width="1254" height="1254" alt="Ein freundlicher Laptop hält eine Null und eine Eins hoch. Hinter seinem Bildschirm schaut ein kleiner, neugieriger Computer-Bug hervor." fetchPriority="high" />
+          <figcaption>„Keine Panik. Wir fangen mit 0 und 1 an.“</figcaption>
+        </figure>
       </header>
 
-      <section className="gatewaySection shell" aria-label="Kursplanung und Projekte">
-        <Link href="/bildungsplan" className="gatewayCard curriculumGateway">
-          <div><span className="eyebrow"> FÜR DIE LEHRKRAFT</span><h2>Bildungsplan & Zweijahresplan</h2><p>Unterrichtsplanung und Zuordnung der Kompetenzen · mit Passwort.</p></div><span className="gatewayArrow">↗</span>
-        </Link>
-        <Link href="/projekte" className="gatewayCard projectGateway">
-          <div><span className="eyebrow"> JE EIN EIGENER PROJEKTCODE</span><h2>Zwei getrennte Projektphasen</h2><p>Die Aufgabenbeschreibungen öffnen sich erst, wenn deine Lehrkraft das jeweilige Projekt freigibt.</p></div><span className="gatewayArrow">↗</span>
-        </Link>
-      </section>
-
-      <section className="newLearning shell"><div><span className="eyebrow">NEU · DATEN & CODIERUNG VON ANFANG AN</span><h2>Erst verstehen. Dann selbst lösen.</h2><p>Vier neu aufgebaute Kapitel führen dich von Bits und Bytes bis zu deiner ersten SQL-Abfrage. Mit vorgemachten Beispielen, kleinen Einstiegsaufgaben, zwei Hinweisen pro Aufgabe und Musterlösungen mit zusätzlichem Lösungscode.</p></div><div><Link className="primaryButton" href="/module/zahlensysteme">Mit Daten & Codierung starten →</Link><Link className="textButton" href="/werkzeuge">BlueJ, JavaScript und Scratch kennenlernen →</Link></div></section>
+      <section className="homeStart shell" aria-labelledby="home-start-title"><div><span className="eyebrow">DEIN EINSTIEG · DATEN & CODIERUNG</span><h2 id="home-start-title">Ein Bit nach dem anderen.</h2><p>Du musst noch kein Computerprofi sein. Starte mit Nullen und Einsen – kleine Beispiele und Hinweise helfen dir Schritt für Schritt weiter.</p></div><Link className="textButton" href="/module/zahlensysteme">Zum Einstieg →</Link></section>
 
       <section className="pathSection" id="themen">
         <div className="shell">
           <div className="sectionIntro">
             <div><span className="sectionNumber">01</span><span className="eyebrow">DEIN LERNPFAD</span></div>
             <h2>Alle Themen auf einen Blick</h2>
-            <p>Die Module folgen den vier inhaltsbezogenen Kompetenzbereichen. Jedes enthält einen ausführlichen Grundlagentext, Schaubild, Beispiel, Heftaufgaben und Programmierpraxis.</p>
+            <p>Entdecke, wie Computer Daten darstellen, Probleme lösen und miteinander kommunizieren. In jedem Kapitel findest du Erklärungen, interaktive Beispiele und Aufgaben für dein Heft.</p>
           </div>
 
           {areas.map((area) => {
@@ -71,16 +64,17 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="howSection shell">
-        <div className="sectionIntro compact">
-          <div><span className="sectionNumber">02</span><span className="eyebrow">SO LERNST DU</span></div>
-          <h2>Vom ersten Begriff zum eigenen Programm</h2>
+      <section className="homeContinue shell" id="projekte-und-programmieren" aria-labelledby="home-continue-title">
+        <div className="homeContinueHeading">
+          <span className="eyebrow">WENN DU BEREIT BIST</span>
+          <h2 id="home-continue-title">Deine Ideen werden praktisch.</h2>
+          <p>Hier geht es zu den Projektphasen und zu den Werkzeugen für deine eigenen Programme.</p>
         </div>
-        <div className="steps">
-          <article><span>01</span><h3>Verstehen</h3><p>Ausführliche Erklärungen, Begriffsboxen, Merksätze und Schaubilder beginnen ohne vorausgesetztes Fachwissen.</p></article>
-          <article><span>02</span><h3>Üben</h3><p>Vorgerechnete Beispiele, Papier- und Heftaufgaben sowie interaktive Stationen sichern jeden Lernschritt.</p></article>
-          <article><span>03</span><h3>Entwickeln</h3><p>Scratch, BlueJ und zwei Projektphasen verbinden die Themen zu eigenen, getesteten Informatikprodukten.</p></article>
+        <div className="homeContinueGrid">
+          <Link href="/projekte" className="homeActionCard homeProjectCard"><span className="eyebrow">ZUSAMMEN ETWAS ENTWICKELN</span><h3>Die Projektphasen</h3><p>Verbinde dein Wissen zu einem eigenen Ergebnis. Jede Projektbeschreibung öffnet sich mit dem passenden Freigabecode deiner Lehrkraft.</p><span className="homeCardLink">Zu den Projekten <span aria-hidden="true">↗</span></span></Link>
+          <Link href="/werkzeuge" className="homeActionCard homeToolsCard"><span className="eyebrow">VOM AUSPROBIEREN ZUM EIGENEN CODE</span><h3>Programmieren: los geht’s</h3><p>Lerne BlueJ und Java, Scratch oder JavaScript kennen. Die Einführung zeigt dir die Oberfläche und begleitet dich bei deinen ersten Schritten.</p><span className="homeCardLink">Werkzeuge kennenlernen <span aria-hidden="true">↗</span></span></Link>
         </div>
+        <aside className="homeTeacher" aria-label="Für Lehrkräfte"><span aria-hidden="true">🔒</span><p><strong>Für Lehrkräfte</strong><br />Bildungsplanbezug und Unterrichtsplanung im geschützten Bereich.</p><Link href="/bildungsplan">Lehrkraftbereich öffnen →</Link></aside>
       </section>
 
       <footer><div className="shell"><div className="brand"><span className="brandMark">&lt;/&gt;</span><span>Informatik-Lernlabor</span></div><p>Verstehen durch Ausprobieren · Wahlfach Oberstufe · KCG</p><a href="#top">Nach oben ↑</a></div></footer>
