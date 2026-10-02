@@ -54,6 +54,7 @@ button:disabled { cursor: wait; opacity: .65; }
 .lessonSection > p { font: 17px/1.9 Georgia, serif; color: #34473d; margin-block: 18px; }
 .lessonNumber { font: 700 12px ui-monospace, monospace; letter-spacing: .1em; color: #506747; }
 .lessonTableWrap { max-width: 100%; overflow-x: auto; margin-block: 26px; border: 1px solid #cbd5c7; border-radius: 8px; background: #fff; }
+.lessonSection > .lessonTableIntro { padding: 16px 20px; border-left: 4px solid #7f9e6e; background: #f2f7e8; border-radius: 0 8px 8px 0; }
 .chapterGate { padding: clamp(22px,4vw,44px); border: 1px solid #cbd5c7; border-radius: 12px; background: #f4f7ed; margin-bottom: 32px; }
 .chapterGate h2 { font-size: clamp(25px,3vw,38px); line-height: 1.2; margin: 18px 0; }
 .chapterGate p { line-height: 1.65; max-width: 68ch; }

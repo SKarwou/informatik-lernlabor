@@ -5,6 +5,9 @@
 .studyBlock p { color:#3e5048; }
 .studyStart { background:linear-gradient(135deg,#ecf4e7,#fffefa 75%); border-top:5px solid var(--green); }
 .studyWhy { font-size:18px; }
+.studyMotivation { margin:0 0 24px; padding:0 0 18px; border-bottom:1px solid #c8d7c3; }
+.studyMotivation h3 { margin:0 0 10px; font-size:20px; color:#183e32; }
+.studyMotivation .studyWhy { margin:0; }
 .studyPrerequisite { background:#fffefa; border-left:4px solid #97b86f; padding:18px; border-radius:0 10px 10px 0; }
 .studyPrerequisite p { margin:8px 0; }
 .studyPrerequisite a,.studyFinish a { text-decoration:underline; text-underline-offset:4px; font-weight:700; }

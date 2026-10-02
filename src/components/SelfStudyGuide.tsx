@@ -16,9 +16,10 @@ const prerequisiteLinks: Record<string, { label: string; href: string }> = {
 };
 export function StudyStart({ guide, scope }: { guide: StudyGuide; scope: string }) {
   const revisit = guide.prerequisites.revisit || prerequisiteLinks[scope];
-  return <section className="studyStart studyBlock" id="lernstart">
-    <span className="eyebrow">VERSTEHEN STATT AUSWENDIG LERNEN</span>
-    <h2>Warum lernen wir das?</h2><p className="studyWhy">{guide.why}</p>
+  return <section className="studyStart studyBlock" id="lernstart" aria-labelledby={`lernstart-${scope}`}>
+    <span className="eyebrow">DEIN KAPITELEINSTIEG</span>
+    <h2 id={`lernstart-${scope}`}>Einstieg & Ziele</h2>
+    <div className="studyMotivation"><h3>Motivation: Warum lernen wir das?</h3><p className="studyWhy">{guide.why}</p></div>
     <div className="studyPrerequisite"><strong>Bevor du startest</strong><p>{guide.prerequisites.text}</p>{revisit && <Link href={revisit.href}>{revisit.label} →</Link>}</div>
     <h3>Dein Ziel für dieses Kapitel</h3><ul>{guide.goals.map(goal => <li key={goal}>{goal}</li>)}</ul>
     <details className="studyRoute"><summary>Dein Lernweg – auch wenn du noch unsicher bist</summary><ol>{guide.route.map(step => <li key={step.title}><strong>{step.title}</strong><p>{step.text}</p></li>)}</ol><p>Bearbeite nicht alles auf einmal. Halte nach einem Abschnitt an: Kannst du die Idee mit einem eigenen Beispiel erklären? Wenn nicht, nutze einen Hinweis und frage gezielt nach.</p></details>

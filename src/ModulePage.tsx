@@ -47,8 +47,8 @@ export default function ModulePage({ slug }: { slug: string }) {
         <div className="moduleContent">
           <ChapterGate key={slug} scope={slug} title={`Kapitel ${topic.number}`}>{payload => <>
           <ChapterAccess scope={topic.slug} />
-          <CartoonBreak slug={topic.slug} />
           {payload.study && <StudyStart scope={slug} guide={payload.study} />}
+          <CartoonBreak slug={topic.slug} />
           {topic.slug === "netzwerke" && <Suspense fallback={<p role="status">Die Computer- und Netzwerkwerkstatt wird geladen …</p>}><NetworkDiscoveryHub /></Suspense>}
           {topic.slug === "sortieren" && <Suspense fallback={<p role="status">Dein Sortiertraining wird geladen …</p>}><SortingTrainerLab /></Suspense>}
           {payload.course ? <BeginnerCourseView course={payload.course} afterReading={payload.study && <StudyWorkshop scope={slug} guide={payload.study} />} /> : payload.theory && payload.beginner ? <ModuleTheory slug={topic.slug} config={payload.theory} beginner={payload.beginner} afterReading={payload.study && <StudyWorkshop scope={slug} guide={payload.study} />} /> : null}

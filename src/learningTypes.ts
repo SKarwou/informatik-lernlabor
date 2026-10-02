@@ -1,4 +1,4 @@
-export type LessonTable = { headers: string[]; rows: string[][]; caption?: string };
+export type LessonTable = { headers: string[]; rows: string[][]; caption?: string; title?: string; introduction?: string };
 export type LessonSection = {
   id: string;
   title: string;

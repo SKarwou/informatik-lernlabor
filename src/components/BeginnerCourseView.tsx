@@ -12,7 +12,11 @@ export default function BeginnerCourseView({ course, afterReading }: { course: B
     {course.sections.map((section, index) => <section className="lessonSection" id={section.id} key={section.id}>
       <div className="lessonNumber">SCHRITT {String(index + 1).padStart(2, "0")}</div><h2>{section.title}</h2>
       {section.paragraphs.map((paragraph, i) => <Fragment key={i}><p>{paragraph}</p>{i === 0 && <LessonVisual slug={course.slug} section={section.id} />}</Fragment>)}
-      {section.table && <div className="lessonTableWrap" role="region" aria-label={section.table.caption || section.title} tabIndex={0}><table className="lessonTable">{section.table.caption && <caption>{section.table.caption}</caption>}<thead><tr>{section.table.headers.map((header, i) => <th key={i} scope="col">{header}</th>)}</tr></thead><tbody>{section.table.rows.map((row, i) => <tr key={i}>{row.map((cell, j) => <td key={j}>{cell}</td>)}</tr>)}</tbody></table></div>}
+      {section.table && <>
+        {section.table.title && <h3>{section.table.title}</h3>}
+        {section.table.introduction && <p className="lessonTableIntro">{section.table.introduction}</p>}
+        <div className="lessonTableWrap" role="region" aria-label={section.table.caption || section.table.title || section.title} tabIndex={0}><table className="lessonTable">{section.table.caption && <caption>{section.table.caption}</caption>}<thead><tr>{section.table.headers.map((header, i) => <th key={i} scope="col">{header}</th>)}</tr></thead><tbody>{section.table.rows.map((row, i) => <tr key={i}>{row.map((cell, j) => <td key={j}>{cell}</td>)}</tr>)}</tbody></table></div>
+      </>}
       {section.steps && <ol className="lessonFlow">{section.steps.map((step, i) => <li key={i}><span>{i + 1}</span><p>{step}</p></li>)}</ol>}
       {section.example && <article className="workedExample"><div className="exampleTop"><span>WIR MACHEN ES GEMEINSAM</span></div><h3>{section.example.title}</h3><p>{section.example.prompt}</p><ol>{section.example.steps.map((step, i) => <li key={i}>{step}</li>)}</ol><p className="exampleResult"><strong>Ergebnis:</strong> {section.example.result}</p></article>}
       {section.remember && <aside className="rememberBox"><span>MERKSATZ</span><p>{section.remember}</p></aside>}

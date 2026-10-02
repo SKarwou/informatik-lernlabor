@@ -213,7 +213,7 @@ export function BinaryAdditionLab() {
 const arithmeticCases = [
   { title: "127 + 1", first: 127, second: 1, lesson: "Kein äußerer Übertrag, aber Vorzeichenüberlauf: Zwei positive Zahlen ergeben in der gespeicherten Zweierkomplement-Deutung eine negative Zahl." },
   { title: "−1 + 1", first: 255, second: 1, lesson: "Ein äußerer Übertrag bedeutet nicht automatisch Vorzeichenüberlauf. Im Zweierkomplement ist −1 + 1 = 0 korrekt darstellbar." },
-  { title: "−128 + (−1)", first: 128, second: 255, lesson: "Hier treten beide Überläufe auf. Vorzeichenlos ist die Summe zu groß; im Zweierkomplement ist die mathematische Summe kleiner als −128." },
+  { title: "−128 + (−1)", first: 128, second: 255, lesson: "Hier treten ein äußerer Übertrag und ein Vorzeichenüberlauf auf. Vorzeichenlos ist die Summe größer als 255; im Zweierkomplement ist die mathematische Summe kleiner als −128." },
 ];
 
 function NumberLine({ value, signed }: { value: number; signed: boolean }) {
@@ -286,15 +286,16 @@ export function SignedBitsLab() {
         </article>
       </div>
       <p className="arithlab-memory"><strong>Dasselbe Muster {binary(pattern, 8)}.</strong> Nur die Stellenwertregel ändert sich. {pattern >= 128 ? `Hier ist das linke Bit 1: ${pattern} − 256 = ${signed}.` : "Hier ist das linke Bit 0. Deshalb sind beide Zahlenwerte gleich."} Im Zweierkomplement ist das linke Bit also keine zusätzliche Minusmarke vor den übrigen sieben Bits, sondern hat den Stellenwert −128.</p>
+      <p className="arithlab-memory"><strong>Merksatz zum Wertebereich:</strong> Bei <strong>insgesamt n Bits, einschließlich des linken Bits,</strong> reicht das Zweierkomplement von −2<sup>n − 1</sup> bis 2<sup>n − 1</sup> − 1. Für 8 Bits sind das <strong>−128 bis 127</strong>. Ohne Vorzeichen reichen n Bits von 0 bis 2<sup>n</sup> − 1, bei 8 Bits also von <strong>0 bis 255</strong>. Die Anzahl der darstellbaren Werte bleibt gleich; ihre Deutung ändert sich.</p>
 
       <div className="arithlab-case-section">
         <h4>Übertrag und Überlauf sind zwei verschiedene Fragen</h4>
-        <p>Die Hardware addiert die Bits gleich. Ob das mathematische Ergebnis in acht Bits passt, hängt vom Zahlenbereich ab. Wähle einen dieser unabhängigen Rechenfälle:</p>
+        <p>Die Hardware addiert die Bits gleich. Wir unterscheiden aber zwei Ergebnisse: <strong>die mathematische Summe ohne Speichergrenze</strong> und <strong>den Wert der tatsächlich gespeicherten acht Bits</strong>. Nur wenn die Summe in den vereinbarten Zahlenbereich passt, stimmen beide überein. Wähle einen dieser unabhängigen Rechenfälle:</p>
         <div className="arithlab-cases" role="group" aria-label="Rechenfall auswählen, Beschriftung im Zweierkomplement">
           {arithmeticCases.map((item, index) => <button type="button" key={item.title} aria-pressed={selectedCase === index} onClick={() => setSelectedCase(index)}>{item.title}</button>)}
         </div>
         <div className="arithlab-case-content" aria-live="polite" aria-atomic="true">
-          <p className="arithlab-note">Die Fallnamen oben verwenden die Zweierkomplement-Deutung.</p>
+          <p className="arithlab-note">Die Fallnamen oben verwenden die Zweierkomplement-Deutung. Das folgende Schema zeigt die Addition der Bitmuster mit einer zusätzlichen Stelle für den äußeren Übertrag.</p>
           <div className="arithlab-binary-sum">
             <span>{binary(example.first, 8)}<sub>2</sub></span><span>+</span><span>{binary(example.second, 8)}<sub>2</sub></span><span>=</span>
             <span><b className="arithlab-outside-bit">{carryOut}</b><b className="arithlab-stored-bits">{binary(stored, 8)}</b><sub>2</sub></span>
@@ -303,15 +304,34 @@ export function SignedBitsLab() {
           <div className="arithlab-case-comparison">
             <article>
               <h5>Vorzeichenlos: 0 bis 255</h5>
-              <p className="arithlab-equation">{example.first} + {example.second} = {unsignedSum}</p>
-              <p><strong>{carryOut ? "Überlauf." : "Kein Überlauf."}</strong> {carryOut ? `${unsignedSum} liegt außerhalb des Bereichs. Die acht gespeicherten Bits werden als ${stored} gelesen; die zusätzliche 256 fehlt.` : `${unsignedSum} passt in den Bereich. Die acht gespeicherten Bits werden korrekt als ${stored} gelesen.`}</p>
+              <dl className="arithlab-result-lines">
+                <div>
+                  <dt>Mathematische Summe · ohne Speichergrenze</dt>
+                  <dd className="arithlab-equation">{example.first} + {example.second} = {unsignedSum}</dd>
+                </div>
+                <div className="arithlab-stored-row">
+                  <dt>Gespeichertes 8-Bit-Ergebnis · vorzeichenlos gelesen</dt>
+                  <dd className="arithlab-stored-result"><code>{binary(stored, 8)}</code><span>gelesen als <strong>{stored}</strong> (dezimal)</span></dd>
+                </div>
+              </dl>
+              <p><strong>{carryOut ? "Vorzeichenloser Überlauf." : "Kein vorzeichenloser Überlauf."}</strong> {carryOut ? `Die mathematische Summe ${unsignedSum} ist größer als 255. Gespeichert wird nur ${stored}: Der äußere Übertrag mit dem Wert 256 gehört nicht zu den acht gespeicherten Bits.` : `Die mathematische Summe ${unsignedSum} passt in den Bereich. Der gespeicherte Wert ${stored} stimmt deshalb mit ihr überein.`}</p>
             </article>
             <article>
               <h5>Zweierkomplement: −128 bis 127</h5>
-              <p className="arithlab-equation">{signedFirst} + {signedSecond < 0 ? `(${signedSecond})` : signedSecond} = {signedSum}</p>
-              <p><strong>{signedOverflow ? "Vorzeichenüberlauf." : "Kein Vorzeichenüberlauf."}</strong> {signedOverflow ? `${signedSum} passt nicht in den Bereich. Das gespeicherte Muster wird als ${signedResult} gelesen, nicht als die mathematische Summe.` : `${signedSum} passt in den Bereich. Das gespeicherte Muster wird korrekt als ${signedResult} gelesen.`}</p>
+              <dl className="arithlab-result-lines">
+                <div>
+                  <dt>Mathematische Summe · ohne Speichergrenze</dt>
+                  <dd className="arithlab-equation">{signedFirst} + {signedSecond < 0 ? `(${signedSecond})` : signedSecond} = {signedSum}</dd>
+                </div>
+                <div className="arithlab-stored-row">
+                  <dt>Gespeichertes 8-Bit-Ergebnis · im Zweierkomplement gelesen</dt>
+                  <dd className="arithlab-stored-result"><code>{binary(stored, 8)}</code><span>gelesen als <strong>{signedResult}</strong> (dezimal)</span></dd>
+                </div>
+              </dl>
+              <p><strong>{signedOverflow ? "Vorzeichenüberlauf." : "Kein Vorzeichenüberlauf."}</strong> {signedOverflow ? `Die mathematische Summe ${signedSum} passt nicht in den Bereich −128 bis 127. Der gespeicherte Wert ${signedResult} ist deshalb nicht die mathematische Summe. Die acht Bits können diese Summe im Zweierkomplement nicht darstellen.` : `Die mathematische Summe ${signedSum} passt in den Bereich. Der gespeicherte Wert ${signedResult} stimmt deshalb mit ihr überein.`}</p>
             </article>
           </div>
+          <p className="arithlab-note"><strong>Übertrag ≠ Vorzeichenüberlauf:</strong> Der äußere Übertrag ist ein zusätzliches Bit links außerhalb des 8-Bit-Speichers. Ein Vorzeichenüberlauf sagt dagegen: Die mathematische Summe der vorzeichenbehafteten Zahlen liegt außerhalb von −128 bis 127. Beides muss getrennt geprüft werden.</p>
           <p className="arithlab-memory"><strong>Darauf kommt es an:</strong> {example.lesson}</p>
         </div>
         <button type="button" className="arithlab-inspect-button" onClick={() => setPattern(stored)}>Ergebnismuster oben im Bitfeld untersuchen</button>
