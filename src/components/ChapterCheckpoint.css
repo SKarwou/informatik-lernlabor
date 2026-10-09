@@ -1,0 +1,39 @@
+.chapterCheckpoint { margin:40px 0; padding:clamp(20px,3vw,32px); border:2px solid #547455; border-radius:18px; background:#f6f9ed; scroll-margin-top:24px; min-width:0; }
+.chapterCheckpoint h2 { font-size:clamp(27px,3vw,36px); letter-spacing:-.035em; line-height:1.15; margin:12px 0 24px; scroll-margin-top:24px; }
+.chapterCheckpoint p { line-height:1.7; color:#344c3c; }
+.chapterCheckpoint .checkpointStorage { font-size:13px; color:#526452; }
+.checkpointStart,.checkpointNotice { background:#fffefa; padding:20px; border-radius:12px; margin-top:20px; }
+.checkpointProgress { padding:15px 0; font-weight:800; color:#234b35; }
+.checkpointQuestion { margin:22px 0; border:1px solid #bfd1b7; border-radius:12px; padding:20px; background:#fffefa; min-width:0; }
+.checkpointQuestion legend { font-size:18px; line-height:1.4; font-weight:800; padding:0 8px; max-width:100%; }
+.chapterCheckpoint pre { background:#183e32; color:#f6f8ef; border-radius:8px; padding:18px; overflow:auto; max-width:100%; font:14px/1.7 ui-monospace,monospace; white-space:pre-wrap; overflow-wrap:anywhere; }
+.checkpointOptions { display:grid; gap:9px; }
+.checkpointOptions>p { font-size:13px; margin:0 0 5px; }
+.checkpointOptions label { display:flex; align-items:flex-start; gap:12px; padding:13px; border:1px solid #c9d6c3; border-radius:8px; background:white; line-height:1.6; cursor:pointer; }
+.checkpointOptions input { width:19px; height:19px; flex:0 0 19px; accent-color:#244c37; margin:4px 0 0; }
+.checkpointInput { display:grid; gap:8px; margin:16px 0; }
+.checkpointInput label { font-weight:700; }
+.checkpointInput input { width:100%; min-height:46px; font:inherit; color:#183e32; border:1px solid #879f80; border-radius:8px; padding:10px 12px; background:white; box-sizing:border-box; }
+.checkpointInput small { line-height:1.6; color:#4b604f; }
+.chapterCheckpoint button { min-height:44px; }
+.chapterCheckpoint button:disabled { opacity:.5; cursor:default; }
+.chapterCheckpoint :is(input,button,a,summary):focus-visible { outline:3px solid #287aaa; outline-offset:4px; }
+.checkpointResult { margin:24px 0; padding:20px; background:#fff0cc; border-left:5px solid #ad7f21; border-radius:0 12px 12px 0; }
+.checkpointResult.hasPassed { background:#dcf0bc; border-color:#3d6c3e; }
+.checkpointResult h3 { margin:0 0 10px; font-size:25px; }.checkpointResult p { margin:0; }
+.checkpointReward { padding:24px; border-radius:12px; background:#183e32; color:#fffefa; }
+.checkpointReward h3 { margin-top:0; line-height:1.4; }.checkpointReward p { color:#edf4e6; }
+.checkpointReward output { display:block; width:fit-content; max-width:100%; padding:14px 20px; margin:20px 0; background:#c9f27f; color:#183e32; border-radius:8px; font:800 26px/1.4 ui-monospace,monospace; overflow-wrap:anywhere; user-select:all; }
+.checkpointReward .secondaryButton { background:#fffefa; color:#183e32; }.checkpointReward .textButton { display:inline-block; margin:15px; color:#edf4e6; }
+.checkpointReview { margin:24px 0; border-top:1px solid #b7cab0; padding-top:16px; }
+.chapterCheckpoint summary { cursor:pointer; font-weight:700; line-height:1.6; }
+.checkpointReview ol { padding-left:24px; }.checkpointReview li { margin:20px 0; line-height:1.6; }
+.checkpointPractice { margin-top:26px; }.checkpointPractice>h3 { font-size:26px; }
+.checkpointTimer { display:flex; flex-wrap:wrap; align-items:center; gap:10px; padding:15px 20px; border-radius:9px; background:#e1edd7; }
+.checkpointTimer [role=timer] { font:800 25px/1.3 ui-monospace,monospace; color:#244c37; }
+.checkpointPracticeQuestion { margin:24px 0; padding:20px; background:#fffefa; border:1px solid #c5d6bb; border-radius:11px; }
+.checkpointPracticeQuestion h4 { font-size:18px; margin:0; line-height:1.5; }.checkpointPracticeQuestion details { margin:14px 0; }
+.checkpointFeedback { padding:15px; border-left:4px solid #b48b24; background:#fff4d7; margin-top:18px; }.checkpointFeedback.isCorrect { background:#e3f3d0; border-color:#3d7a42; }.checkpointFeedback p { margin-bottom:0; }
+.checkpointPreview { display:block; margin-top:20px; font-size:12px; }
+@media(max-width:550px) { .chapterCheckpoint { padding:18px; }.checkpointQuestion,.checkpointPracticeQuestion { padding:14px; }.checkpointReward { padding:18px; }.checkpointReward .textButton { display:block; margin:18px 0 0; } }
+@media print { .chapterCheckpoint { background:white; break-inside:auto; }.checkpointQuestion { break-inside:avoid; }.checkpointReward,.checkpointStart,.checkpointTimer,.checkpointPreview { display:none; } }

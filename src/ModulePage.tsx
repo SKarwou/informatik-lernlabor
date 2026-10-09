@@ -11,6 +11,8 @@ import PracticeView from "./components/PracticeView";
 import CartoonBreak from "./components/visuals/CartoonBreak";
 import { isTeacherPreview } from "./teacherPreview";
 import { StudyStart, StudyWorkshop, StudyFinish } from "./components/SelfStudyGuide";
+import ChapterCheckpoint from "./components/ChapterCheckpoint";
+import { progressKey } from "./checkpointEngine";
 const ManipulationLab = lazy(() => import("./components/visuals/ManipulationLab"));
 const NetworkDiscoveryHub = lazy(() => import("./components/visuals/NetworkDiscoveryHub"));
 const SortingTrainerLab = lazy(() => import("./components/visuals/SortingTrainerLab"));
@@ -42,7 +44,7 @@ export default function ModulePage({ slug }: { slug: string }) {
         <aside className="learningGoals">
           <div className="eyebrow">DAS KANNST DU DANACH</div>
           <ol>{topic.skills.map((skill) => <li key={skill}>{skill}</li>)}</ol>
-          <div className="sideLinks"><a href="#loesungscode">{isTeacherPreview ? "Musterlösungen sind geöffnet" : "🔒 Lösungscode eingeben"}</a>{topic.slug === "netzwerke" && <a href="#entdeckerwerkstatt">Computer & Netze entdecken ↓</a>}{topic.slug === "sortieren" && <a href="#sortiertraining">Schritt für Schritt sortieren ↓</a>}<a href="#spielwerkstatt">Zur zusätzlichen Schiebeübung ↓</a><Link href="/werkzeuge">Erste Schritte mit BlueJ & JavaScript</Link></div>
+          <div className="sideLinks"><a href="#loesungscode">{isTeacherPreview ? "Musterlösungen sind geöffnet" : "🔒 Lösungscode eingeben"}</a>{topic.slug === "netzwerke" && <a href="#entdeckerwerkstatt">Computer & Netze entdecken ↓</a>}{topic.slug === "sortieren" && <a href="#sortiertraining">Schritt für Schritt sortieren ↓</a>}<a href="#spielwerkstatt">Zur zusätzlichen Schiebeübung ↓</a><a href="#abschlusscheck">Zum Abschlusscheck ↓</a><Link href="/werkzeuge">Erste Schritte mit BlueJ & JavaScript</Link></div>
         </aside>
         <div className="moduleContent">
           <ChapterGate key={slug} scope={slug} title={`Kapitel ${topic.number}`}>{payload => <>
@@ -58,6 +60,7 @@ export default function ModulePage({ slug }: { slug: string }) {
           {topic.slug === "sortieren" && payload.bubble ? <BubbleSortLab config={payload.bubble} /> : payload.lab ? <ModuleExercises slug={topic.slug} config={payload.lab} /> : null}
           {payload.practice && <PracticeView tasks={payload.practice} scope={topic.slug} />}
           {payload.study && <StudyFinish key={slug} guide={payload.study} />}
+          {payload.checkpoint && <ChapterCheckpoint key={progressKey(payload.checkpoint)} config={payload.checkpoint} />}
           </>}</ChapterGate>
         </div>
       </section>

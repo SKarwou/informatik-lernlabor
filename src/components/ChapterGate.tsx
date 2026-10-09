@@ -7,7 +7,8 @@ import { useProtected } from "./ProtectedContent";
 import type { PracticeTask } from "./PracticeView";
 import type { BubbleConfig } from "./BubbleSortLab";
 import { isTeacherPreview, readTeacherPreview } from "../teacherPreview";
-export type ChapterPayload = { version: 1; kind: "chapter" | "project"; title: string; course?: BeginnerCourse; theory?: ModuleTheoryConfig; beginner?: { plain: string; picture: string; miniTask: string }; lab?: LabConfig; html?: string; practice?: PracticeTask[]; bubble?: BubbleConfig; study?: StudyGuide };
+import type { CheckpointConfig } from "../checkpointEngine";
+export type ChapterPayload = { version: 1; kind: "chapter" | "project"; title: string; course?: BeginnerCourse; theory?: ModuleTheoryConfig; beginner?: { plain: string; picture: string; miniTask: string }; lab?: LabConfig; html?: string; practice?: PracticeTask[]; bubble?: BubbleConfig; study?: StudyGuide; checkpoint?: CheckpointConfig };
 const bytes = (value: string) => Uint8Array.from(atob(value), c => c.charCodeAt(0));
 export default function ChapterGate({ scope, title, project = false, children }: { scope: string; title: string; project?: boolean; children: (payload: ChapterPayload) => ReactNode }) {
   const [payload, setPayload] = useState<ChapterPayload | null>(null);
@@ -65,7 +66,7 @@ export default function ChapterGate({ scope, title, project = false, children }:
   if (isTeacherPreview) return <section className="chapterGate"><h2>{title}</h2><p role={error ? "alert" : "status"}>{error || "Die lokale Lehrkraftvorschau wird ohne Code geöffnet …"}</p></section>;
   return <section className="chapterGate" aria-labelledby={id + "-title"}>
     <span className="eyebrow">🔒 {project ? "PROJEKTFREIGABE" : "KAPITELFREIGABE"}</span><h2 id={id + "-title"}>{title} wartet auf deine Freigabe</h2>
-    <p>{project ? "Die Projektbeschreibung bleibt bis zur Freigabe verborgen. Jedes Projekt hat seinen eigenen Code." : "Deine Lehrkraft gibt dir den Code, wenn du für dieses Kapitel bereit bist. Die Bearbeitung allein schaltet kein weiteres Kapitel frei."}</p>
+    <p>{project ? "Die Projektbeschreibung bleibt bis zur Freigabe verborgen. Jedes Projekt hat seinen eigenen Code." : "Gib den Kapitelcode ein. Du erhältst ihn von deiner Lehrkraft oder erreichst ihn im Abschlusscheck des vorherigen Lernkapitels. Für das erste Kapitel gibt dir die Lehrkraft den Startcode."}</p>
     <form className="unlockForm" onSubmit={submit}><label htmlFor={id}>{project ? "Projektcode" : "Kapitelcode"}</label><div className="unlockRow"><input id={id} type="password" autoComplete="off" autoCapitalize="none" spellCheck={false} value={code} onChange={event => setCode(event.target.value)} disabled={busy} required aria-describedby={error ? id + "-error" : undefined} /><button className="primaryButton" disabled={busy || !code.trim()}>{busy ? "Wird geöffnet …" : "Inhalt öffnen"}</button></div>{error && <p id={id + "-error"} role="alert" className="unlockError">{error}</p>}</form>
     <p className="sourceNote">Groß- und Kleinschreibung sind beim Freigabecode egal. Nach dem Neuladen wird der Inhalt wieder gesperrt. Für Musterlösungen gilt ein zusätzlicher Lösungscode.</p>
   </section>;
